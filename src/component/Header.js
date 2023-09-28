@@ -8,7 +8,7 @@ function Header(props) {
         src={process.env.PUBLIC_URL + "./logo.svg"}
         alt="logo"
       ></img>
-      <div id="menu_font">
+      <div className="menu">
         <ul>
           <li>팀 소개</li>
           <li>팀 연혁</li>

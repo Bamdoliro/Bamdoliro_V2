@@ -1,4 +1,17 @@
+import styled from "styled-components";
 import React from "react";
+
+const Menu = styled.ul`
+  display: flex;
+  align-items: center;
+  color: white;
+  width: 1240px;
+  height: 54px;
+
+  ul {
+    margin-right: -10px;
+  }
+`;
 
 function Header(props) {
   return (
@@ -8,14 +21,12 @@ function Header(props) {
         src={process.env.PUBLIC_URL + "./logo.svg"}
         alt="logo"
       ></img>
-      <div className="menu">
-        <ul>
-          <li>팀 소개</li>
-          <li>팀 연혁</li>
-          <li>멤버 소개</li>
-          <li>팀 문화</li>
-        </ul>
-      </div>
+      <Menu>
+        <ul>팀 소개</ul>
+        <ul>팀 연혁</ul>
+        <ul>멤버 소개</ul>
+        <ul>팀 문화</ul>
+      </Menu>
     </div>
   );
 }

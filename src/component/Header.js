@@ -3,7 +3,19 @@ import React from "react";
 function Header(props) {
   return (
     <div>
-      <h1>헤더입니다</h1>
+      <img
+        className="logo"
+        src={process.env.PUBLIC_URL + "./logo.svg"}
+        alt="logo"
+      ></img>
+      <div id="menu_font">
+        <ul>
+          <li>팀 소개</li>
+          <li>팀 연혁</li>
+          <li>멤버 소개</li>
+          <li>팀 문화</li>
+        </ul>
+      </div>
     </div>
   );
 }

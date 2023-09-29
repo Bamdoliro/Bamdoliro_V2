@@ -1,8 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 import styled from "styled-components";
-import Header from "./component/Header";
-import Main from "./component/Main";
-import Pointer from "./component/Pointer";
+import Header from "./component/Header/Header";
+import Main from "./component/Main/Main";
+import Pointer from "./component/Pointer/Pointer";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -22,9 +22,10 @@ function App() {
     <>
       <GlobalStyle />
       <Container>
-        <Pointer />
-        <Header />
-        <Main />
+        <Pointer>
+          <Header />
+          <Main />
+        </Pointer>
       </Container>
     </>
   );

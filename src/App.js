@@ -22,8 +22,8 @@ function App() {
     <>
       <GlobalStyle />
       <Container>
-        <Header />
         <Pointer />
+        <Header />
         <Main />
       </Container>
     </>

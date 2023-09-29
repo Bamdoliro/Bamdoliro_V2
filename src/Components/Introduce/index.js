@@ -29,9 +29,11 @@ const Introduce = () => {
     <Layout onWheel={handleWheel}>
       <ContentLayout>
         <Contents>
-          <MainText>
-          {texts[wheelMove]}
-          </MainText>
+          {wheelMove == 0 ? <MainText>{texts[0]}</MainText> : <SubText>{texts[0]}</SubText>}
+          {wheelMove == 1 ? <MainText>{texts[1]}</MainText> : <SubText>{texts[1]}</SubText>}
+          {wheelMove == 2 ? <MainText>{texts[2]}</MainText> : <SubText>{texts[2]}</SubText>}
+          {wheelMove == 3 ? <MainText>{texts[3]}</MainText> : <SubText>{texts[3]}</SubText>}
+          {wheelMove == 4 ? <MainText>{texts[4]}</MainText> : <SubText>{texts[4]}</SubText>}
         </Contents>
         <Bamdoliro>
           밤돌이로
@@ -55,8 +57,11 @@ const ContentLayout = styled.div`
 `
 const Contents = styled.div`
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   height: 350px;
+  gap: 34px;
+  overflow: hidden;
 `
 const Bamdoliro = styled.p`
   color: var(--grey3, #3E3D3F);
@@ -67,16 +72,15 @@ const Bamdoliro = styled.p`
   font-weight: 700;
   line-height: normal;
 `
-// const SubText = styled.h2`
-//   color: #363636;
-//   text-align: center;
-//   /* H2 */
-//   font-family: Pretendard;
-//   font-size: 28px;
-//   font-style: normal;
-//   font-weight: 700;
-//   line-height: normal;
-// `
+const SubText = styled.h2`
+  color: var(--grey2, #929292);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+`
 const MainText = styled.h1`
   color: var(--navy, #6699ED);
   text-align: center;

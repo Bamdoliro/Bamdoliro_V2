@@ -10,30 +10,34 @@ const Introduce = () => {
     '🧶엉킨 실타래를 푸는'
   ])
 
-  const hasWheelEventHandled = useRef(false);
+  const wheelDown = useRef(false);
   const [wheelMove, setWheelMove] = useState(0)
 
-  const handleWheel = () => {
-    if (hasWheelEventHandled.current || wheelMove >= 4) {
+  const handleWheel = (event) => {
+    if (wheelDown.current || wheelMove >= 4) {
       return;
     }
-    console.log("휠 움직임");
-    setWheelMove(wheelMove + 1)
-    hasWheelEventHandled.current = true;
-    setTimeout(() => {
-      hasWheelEventHandled.current = false;
-    }, 1500);
-  };
+    const scroll = event.deltaY;
+    if (scroll > 0) {
+      console.log("Scrolling down");
+      setWheelMove(wheelMove + 1);
+      wheelDown.current = true;
 
+      setTimeout(() => {
+        wheelDown.current = false;
+      }, 1500);
+    }
+  };
+  
   return (
     <Layout onWheel={handleWheel}>
       <ContentLayout>
-        <Contents>
-          {wheelMove == 0 ? <MainText>{texts[0]}</MainText> : <SubText>{texts[0]}</SubText>}
-          {wheelMove == 1 ? <MainText>{texts[1]}</MainText> : <SubText>{texts[1]}</SubText>}
-          {wheelMove == 2 ? <MainText>{texts[2]}</MainText> : <SubText>{texts[2]}</SubText>}
-          {wheelMove == 3 ? <MainText>{texts[3]}</MainText> : <SubText>{texts[3]}</SubText>}
-          {wheelMove == 4 ? <MainText>{texts[4]}</MainText> : <SubText>{texts[4]}</SubText>}
+      <Contents wheelMove={wheelMove}>
+          {wheelMove === 0 ? (<MainText>{texts[0]}</MainText>) : (<SubText>{texts[0]}</SubText>)}
+          {wheelMove === 1 ? (<MainText>{texts[1]}</MainText>) : (<SubText>{texts[1]}</SubText>)}
+          {wheelMove === 2 ? (<MainText>{texts[2]}</MainText>) : (<SubText>{texts[2]}</SubText>)}
+          {wheelMove === 3 ? (<MainText>{texts[3]}</MainText>) : (<SubText>{texts[3]}</SubText>)}
+          {wheelMove === 4 ? (<MainText>{texts[4]}</MainText>) : (<SubText>{texts[4]}</SubText>)}
         </Contents>
         <Bamdoliro>
           밤돌이로
@@ -56,10 +60,12 @@ const ContentLayout = styled.div`
   gap: 51px;
 `
 const Contents = styled.div`
+  transition: transform 0.5s ease; /* Add a transition for smooth movement */
+  transform: translateY(${(props) => -props.wheelMove * 71}px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 350px;
+  justify-content: end;
+  height: 630px;
   gap: 34px;
   overflow: hidden;
 `

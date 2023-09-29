@@ -51,13 +51,15 @@ function Pointer() {
             className="pointer"
             style={{
               position: "absolute",
-              width: "50px",
-              height: "50px",
-              borderRadius: "50px",
-              background: "red",
+              width: "300px",
+              height: "300px",
+              borderRadius: "1000px",
+              background: "var(--white, #FFF)",
               transition: ".5s ease-out",
               top: pointerPosition.top + "px",
               left: pointerPosition.left + "px",
+              boxShadow: "20px10px3px-3px#00f",
+              filter: "blur(20px)",
             }}
           />
         )}

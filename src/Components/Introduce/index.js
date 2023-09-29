@@ -60,7 +60,7 @@ const ContentLayout = styled.div`
   gap: 51px;
 `
 const Contents = styled.div`
-  transition: transform 0.5s ease; /* Add a transition for smooth movement */
+  transition: transform 0.5s ease;
   transform: translateY(${(props) => -props.wheelMove * 71}px);
   display: flex;
   flex-direction: column;

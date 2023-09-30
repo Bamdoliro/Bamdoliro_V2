@@ -74,14 +74,28 @@ function Pointer() {
           />
         )}
         <div
-          className="main-text"
+          className="font1"
           style={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             position: "absolute",
-            top: "50%",
-            left: "50%",
+            top: "70%",
+            left: "70%",
+            transform: "translate(-50%, -50%)",
+          }}
+        >
+          <Font>밤돌이로</Font>
+        </div>
+        <div
+          className="font2"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            position: "absolute",
+            top: "35%",
+            left: "25%",
             transform: "translate(-50%, -50%)",
           }}
         >

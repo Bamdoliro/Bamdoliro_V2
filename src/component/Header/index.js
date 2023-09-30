@@ -6,22 +6,25 @@ const Menu = styled.ul`
   align-items: center;
   color: white;
   width: 1240px;
-  height: 10px;
+  height: 30px;
+  margin-left: 950px;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  margin-bottom: 30px;
+`;
 
-  ul {
-    margin-right: -10px;
-  }
+const Logo = styled.img`
+  margin-left: -520px; // 로고와 텍스트 사이의 거리 조정
+  margin-right: 600px; // 로고와 텍스트 사이의 거리 조정
 `;
 
 function Header(props) {
   return (
     <div>
-      <img
-        className="logo"
-        src={process.env.PUBLIC_URL + "./logo.svg"}
-        alt="logo"
-      ></img>
       <Menu>
+        <Logo src={process.env.PUBLIC_URL + "./logo.svg"} alt="logo" />
         <ul>팀 소개</ul>
         <ul>팀 연혁</ul>
         <ul>멤버 소개</ul>

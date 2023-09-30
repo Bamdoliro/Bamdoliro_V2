@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import React, { useState } from "react";
 import { createGlobalStyle } from "styled-components";
 
@@ -31,6 +32,15 @@ function Pointer() {
     }
   };
 
+  const Font = styled.div`
+    font-family: Pretendard;
+    font-size: 72px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    color: #3e3d3f;
+  `;
+
   return (
     <>
       <GlobalStyle />
@@ -54,7 +64,7 @@ function Pointer() {
               width: "300px",
               height: "300px",
               borderRadius: "1000px",
-              background: "var(--white, #FFF)",
+              background: "white",
               transition: ".5s ease-out",
               top: pointerPosition.top + "px",
               left: pointerPosition.left + "px",
@@ -63,6 +73,20 @@ function Pointer() {
             }}
           />
         )}
+        <div
+          className="main-text"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+          }}
+        >
+          <Font>밤마다</Font>
+        </div>
       </div>
     </>
   );

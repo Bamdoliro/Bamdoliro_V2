@@ -8,11 +8,12 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
+    overflow: hidden;
   }
 `;
 
 const Container = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   background-color: #3e3d3f;
 `;
@@ -22,10 +23,9 @@ function App() {
     <>
       <GlobalStyle />
       <Container>
-        <Pointer>
-          <Header />
-          <Main />
-        </Pointer>
+        <Pointer />
+        <Header />
+        <Main />
       </Container>
     </>
   );

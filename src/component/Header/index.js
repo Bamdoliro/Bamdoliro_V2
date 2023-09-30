@@ -6,7 +6,7 @@ const Menu = styled.ul`
   align-items: center;
   color: white;
   width: 1240px;
-  height: 54px;
+  height: 10px;
 
   ul {
     margin-right: -10px;

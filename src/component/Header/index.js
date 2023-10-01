@@ -1,36 +1,47 @@
 import styled from "styled-components";
 import React from "react";
 
+const HeaderContainer = styled.div`
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(62, 61, 63, 0.01);
+  backdrop-filter: blur(5px);
+`;
+
 const Menu = styled.ul`
   display: flex;
   align-items: center;
   color: white;
-  width: 1240px;
+  width: 100vw;
   height: 30px;
-  margin-left: 950px;
   font-family: Pretendard;
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
-  margin-bottom: 30px;
+  line-height: normal;
+  margin-left: 180px;
+
+  li {
+    list-style-type: none;
+    margin-right: 30px;
+    cursor: pointer;
+  }
 `;
 
 const Logo = styled.img`
-  margin-left: -480px; // 로고와 텍스트 사이의 거리 조정
-  margin-right: 600px; // 로고와 텍스트 사이의 거리 조정
+  margin-right: 700px;
 `;
 
 function Header(props) {
   return (
-    <div>
+    <HeaderContainer>
       <Menu>
         <Logo src={process.env.PUBLIC_URL + "./logo.svg"} alt="logo" />
-        <ul>팀 소개</ul>
-        <ul>팀 연혁</ul>
-        <ul>멤버 소개</ul>
-        <ul>팀 문화</ul>
+        <li>팀 소개</li>
+        <li>팀 연혁</li>
+        <li>멤버 소개</li>
+        <li>팀 문화</li>
       </Menu>
-    </div>
+    </HeaderContainer>
   );
 }
 

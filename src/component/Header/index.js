@@ -1,6 +1,20 @@
 import styled from "styled-components";
 import React from "react";
 
+function Header(props) {
+  return (
+    <HeaderContainer>
+      <Menu>
+        <Logo src={process.env.PUBLIC_URL + "./logo.svg"} alt="logo" />
+        <li>팀 소개</li>
+        <li>팀 연혁</li>
+        <li>멤버 소개</li>
+        <li>팀 문화</li>
+      </Menu>
+    </HeaderContainer>
+  );
+}
+
 const HeaderContainer = styled.div`
   border: 1px solid rgba(255, 255, 255, 0.06);
   background: rgba(62, 61, 63, 0.01);
@@ -30,19 +44,5 @@ const Menu = styled.ul`
 const Logo = styled.img`
   margin-right: 700px;
 `;
-
-function Header(props) {
-  return (
-    <HeaderContainer>
-      <Menu>
-        <Logo src={process.env.PUBLIC_URL + "./logo.svg"} alt="logo" />
-        <li>팀 소개</li>
-        <li>팀 연혁</li>
-        <li>멤버 소개</li>
-        <li>팀 문화</li>
-      </Menu>
-    </HeaderContainer>
-  );
-}
 
 export default Header;

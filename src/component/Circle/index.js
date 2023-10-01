@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 
 const Circle = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -20,23 +21,19 @@ const Circle = () => {
     };
   }, []);
 
-  return (
-    <div
-      style={{
-        position: "fixed",
-        left: position.x,
-        top: position.y,
-        width: "320px",
-        height: "320px",
-        borderRadius: "50%",
-        backgroundColor: "white",
-        filter: "blur(20px)",
-        transitionProperty: "left top",
-        transitionDuration: "0.2s",
-        transition: ".3s ease-out",
-      }}
-    ></div>
-  );
+  return <Pointer style={{ left: position.x, top: position.y }} />;
 };
+
+const Pointer = styled.div`
+  position: fixed;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background-color: white;
+  filter: blur(20px);
+  transition-property: left top;
+  transition-duration: 0.2s;
+  transition: 0.3s ease-out;
+`;
 
 export default Circle;

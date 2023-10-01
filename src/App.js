@@ -4,6 +4,19 @@ import Header from "./component/Header/index";
 import Main from "./component/Main/index";
 import Circle from "./component/Circle/index";
 
+function App() {
+  return (
+    <>
+      <GlobalStyle />
+      <Container>
+        <Header />
+        <Circle />
+        <Main />
+      </Container>
+    </>
+  );
+}
+
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
@@ -21,18 +34,5 @@ const Container = styled.div`
   height: 100vh;
   background-color: #3e3d3f;
 `;
-
-function App() {
-  return (
-    <>
-      <GlobalStyle />
-      <Container>
-        <Header />
-        <Circle />
-        <Main />
-      </Container>
-    </>
-  );
-}
 
 export default App;

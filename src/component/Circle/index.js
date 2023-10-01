@@ -4,7 +4,7 @@ const Circle = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
   const handleMouseMove = (e) => {
-    const circleSize = 456;
+    const circleSize = 320;
     const circleRadius = circleSize / 2;
     setPosition({
       x: e.clientX - circleRadius,
@@ -26,10 +26,11 @@ const Circle = () => {
         position: "fixed",
         left: position.x,
         top: position.y,
-        width: "456px",
-        height: "456px",
+        width: "320px",
+        height: "320px",
         borderRadius: "50%",
         backgroundColor: "white",
+        filter: "blur(20px)",
       }}
     ></div>
   );

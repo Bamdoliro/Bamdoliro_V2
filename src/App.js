@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 import styled from "styled-components";
 import Header from "./component/Header/index";
 import Main from "./component/Main/index";
-import Pointer from "./component/Pointer/index";
+import Circle from "./component/Circle/index";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -28,7 +28,7 @@ function App() {
       <GlobalStyle />
       <Container>
         <Header />
-        <Pointer />
+        <Circle />
         <Main />
       </Container>
     </>

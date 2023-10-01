@@ -34,11 +34,20 @@ function Main() {
 
   const Font = styled.div`
     font-family: Pretendard;
-    font-size: 72px;
+    font-size: 60px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     color: #3e3d3f;
+  `;
+
+  const Text = styled.div`
+    font-family: Pretendard;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    color: white;
   `;
 
   return (
@@ -80,8 +89,8 @@ function Main() {
             justifyContent: "center",
             alignItems: "center",
             position: "absolute",
-            top: "70%",
-            left: "70%",
+            top: "60%",
+            left: "75%",
             transform: "translate(-50%, -50%)",
           }}
         >
@@ -101,6 +110,20 @@ function Main() {
         >
           <Font>밤마다</Font>
         </div>
+      </div>
+      <div
+        className="text"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          position: "absolute",
+          bottom: "5%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+        }}
+      >
+        <Text>커서를 움직여 불빛을 비춰보세요</Text>
       </div>
     </>
   );

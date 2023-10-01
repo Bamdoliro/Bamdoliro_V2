@@ -16,7 +16,7 @@ const Menu = styled.ul`
 `;
 
 const Logo = styled.img`
-  margin-left: -520px; // 로고와 텍스트 사이의 거리 조정
+  margin-left: -480px; // 로고와 텍스트 사이의 거리 조정
   margin-right: 600px; // 로고와 텍스트 사이의 거리 조정
 `;
 

@@ -31,6 +31,9 @@ const Circle = () => {
         borderRadius: "50%",
         backgroundColor: "white",
         filter: "blur(20px)",
+        transitionProperty: "left top",
+        transitionDuration: "0.2s",
+        transition: ".3s ease-out",
       }}
     ></div>
   );

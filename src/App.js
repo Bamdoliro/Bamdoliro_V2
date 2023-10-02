@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     overflow: hidden;
-    position: relative; // Add this line
+    position: relative; 
    }
 `;
 

@@ -6,7 +6,7 @@ function Header(props) {
     <HeaderContainer>
       <Menu>
         <Logo src={process.env.PUBLIC_URL + "./logo.svg"} alt="logo" />
-        <Team>팀 소개</Team>
+        <li>팀 소개</li>
         <li>팀 연혁</li>
         <li>멤버 소개</li>
         <li>팀 문화</li>
@@ -22,6 +22,7 @@ const HeaderContainer = styled.div`
 
   border: 1px solid rgba(255, 255, 255, 0.06);
   background: rgba(62, 61, 63, 0.3);
+
   backdrop-filter: blur(5px);
 `;
 
@@ -40,20 +41,20 @@ const Menu = styled.ul`
 
   li {
     list-style-type: none;
-    margin-right: 30px;
+    margin-right: 20px;
     cursor: pointer;
+
+    &:hover {
+      border-radius: 4px;
+      background: rgba(238, 238, 238, 0.3);
+      padding: 8px 12px;
+      line-height: initial;
+    }
   }
 `;
 
-const Team = styled.li`
-  border-radius: 4px;
-  background: rgba(238, 238, 238, 0.3);
-  padding: 8px 12px;
-  line-height: initial;
-`;
-
 const Logo = styled.img`
-  margin-right: 600px;
+  margin-right: 650px;
 `;
 
 export default Header;

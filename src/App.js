@@ -9,8 +9,8 @@ function App() {
     <>
       <GlobalStyle />
       <Container>
-        <Header />
-        <Circle />
+        <StyledHeader />
+        <StyledCircle />
         <Main />
       </Container>
     </>
@@ -34,6 +34,16 @@ const Container = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: #3e3d3f;
+`;
+
+const StyledHeader = styled(Header)`
+  position: relative;
+  z-index: 2;
+`;
+
+const StyledCircle = styled(Circle)`
+  position: relative;
+  z-index: 1;
 `;
 
 export default App;

@@ -21,7 +21,7 @@ const HeaderContainer = styled.div`
   z-index: 1000;
 
   border: 1px solid rgba(255, 255, 255, 0.06);
-  background: rgba(62, 61, 63, 0.01);
+  background: rgba(62, 61, 63, 0.3);
   backdrop-filter: blur(5px);
 `;
 

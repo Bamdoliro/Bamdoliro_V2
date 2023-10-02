@@ -16,9 +16,9 @@ function Header(props) {
 }
 
 const HeaderContainer = styled.div`
-  position: fixed; // make the header fixed at the top
-  top: 0; // align it to the top of the page
-  z-index: 1000; // make it appear on top of other elements
+  position: fixed;
+  top: 0;
+  z-index: 1000;
 
   border: 1px solid rgba(255, 255, 255, 0.06);
   background: rgba(62, 61, 63, 0.01);

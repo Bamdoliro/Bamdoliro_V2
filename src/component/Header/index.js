@@ -6,7 +6,7 @@ function Header(props) {
     <HeaderContainer>
       <Menu>
         <Logo src={process.env.PUBLIC_URL + "./logo.svg"} alt="logo" />
-        <li>팀 소개</li>
+        <Team>팀 소개</Team>
         <li>팀 연혁</li>
         <li>멤버 소개</li>
         <li>팀 문화</li>
@@ -39,6 +39,13 @@ const Menu = styled.ul`
     margin-right: 30px;
     cursor: pointer;
   }
+`;
+
+const Team = styled.li`
+  border-radius: 4px;
+  background: rgba(238, 238, 238, 0.3);
+  padding: 8px 12px;
+  line-height: initial;
 `;
 
 const Logo = styled.img`

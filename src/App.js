@@ -3,17 +3,35 @@ import Main from "./Components/Main/index";
 import Circle from "./Components/Circle/index";
 import {styled, createGlobalStyle} from "styled-components";
 import Introduce from "./Components/Introduce";
+import ReactFullpage from "@fullpage/react-fullpage";
 
 function App() {
   return (
     <>
-      <GlobalStyle />
-      <Container>
-        <StyledHeader />
-        <StyledCircle />
-        <Main />
-      </Container>
-      <Introduce />
+      <ReactFullpage
+        anchors={[
+          'main',
+          'introduce',
+        ]}
+        render={({ state, fullpageApi }) => {
+          console.log('render prop change', state, fullpageApi);
+          return (
+            <>
+              <GlobalStyle />
+              <div className="section">
+                <Container>
+                  <StyledHeader />
+                  <StyledCircle />
+                  <Main />
+                </Container>
+              </div>
+              <div className="section">
+                <Introduce/>
+              </div>
+          </>
+          )
+        }}
+      />
     </>
   );
 }
@@ -22,6 +40,9 @@ const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
+  }
+  .fp-watermark {
+    display: none;
   }
 `;
 

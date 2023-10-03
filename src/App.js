@@ -1,8 +1,10 @@
-import { createGlobalStyle } from "styled-components";
 import styled from "styled-components";
 import Header from "./component/Header/index";
 import Main from "./component/Main/index";
 import Circle from "./component/Circle/index";
+import {styled, createGlobalStyle} from "styled-components";
+import Introduce from "./Components/Introduce";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
@@ -13,11 +15,18 @@ function App() {
         <StyledCircle />
         <Main />
       </Container>
+      <Routes>
+        <Route path="/" element={ <App /> } />
+        <Route path="/introduce" element={<Introduce />} />
+      </Routes>
     </>
   );
 }
 
 const GlobalStyle = createGlobalStyle`
+  * {
+    margin: 0;
+   }
   body {
     margin: 0;
     padding: 0;

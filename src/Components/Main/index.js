@@ -1,10 +1,8 @@
-import styled from "styled-components";
-import { createGlobalStyle } from "styled-components";
+import { styled } from "styled-components";
 
 function Main() {
   return (
     <>
-      <GlobalStyle />
       <Bamdoliro>
         <Font>밤돌이로</Font>
       </Bamdoliro>
@@ -17,14 +15,6 @@ function Main() {
     </>
   );
 }
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-  }
-`;
 
 const Font = styled.div`
   font-family: Pretendard;

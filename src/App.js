@@ -13,8 +13,7 @@ function App() {
           'main',
           'introduce',
         ]}
-        render={({ state, fullpageApi }) => {
-          console.log('render prop change', state, fullpageApi);
+        render={() => {
           return (
             <>
               <GlobalStyle />
@@ -28,7 +27,7 @@ function App() {
               <div className="section">
                 <Introduce/>
               </div>
-          </>
+            </>
           )
         }}
       />

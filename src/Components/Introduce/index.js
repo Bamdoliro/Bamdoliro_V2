@@ -20,8 +20,7 @@ const Introduce = () => {
     if (scroll > 0) {
       console.log('Scrolling down');
       setWheelMove(wheelMove + 1);
-      wheelDown.current = true;
-
+      wheelDown.current = true
       setTimeout(() => {
         wheelDown.current = false;
       }, 1500);
@@ -60,6 +59,7 @@ const Layout = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 `;
 
 const ContentLayout = styled.div`

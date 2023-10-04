@@ -33,7 +33,7 @@ const Pointer = styled.div`
   filter: blur(20px);
   transition-property: left top;
   transition-duration: 0.2s;
-  transition: 0.3s ease-out;
+  transition: 0.2s ease-out;
 `;
 
 export default Circle;

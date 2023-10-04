@@ -55,7 +55,7 @@ const Menu = styled.ul`
 `;
 
 const Logo = styled.img`
-  margin-right: 600px;
+  margin-right: 480px;
 `;
 
 export default Header;

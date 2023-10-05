@@ -77,8 +77,8 @@ const Menu = styled.ul`
 `;
 
 const Logo = styled.img`
-  width: 190px;
-  height: 23px;
+  width: 170px;
+  height: 20px;
   margin-right: 600px;
 `;
 

@@ -1,14 +1,14 @@
-import Main from "./Main/index";
+import Content from "./Content/index";
 import Circle from "./Circle/index";
 import { styled, createGlobalStyle } from "styled-components";
 
-function FirstPage() {
+function Main() {
   return (
     <>
       <GlobalStyle />
       <Container>
         <StyledCircle />
-        <Main />
+        <Content />
       </Container>
     </>
   );
@@ -36,4 +36,4 @@ const StyledCircle = styled(Circle)`
   z-index: 1;
 `;
 
-export default FirstPage;
+export default Main;

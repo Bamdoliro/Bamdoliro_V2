@@ -38,11 +38,11 @@ const Menu = styled.ul`
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  margin-left: 100px;
+  margin-left: 120px;
 
   li {
     list-style-type: none;
-    margin-right: 30px;
+    margin-right: 20px;
     cursor: pointer;
 
     &:hover {
@@ -55,7 +55,7 @@ const Menu = styled.ul`
 `;
 
 const Logo = styled.img`
-  margin-right: 480px;
+  margin-right: 600px;
 `;
 
 export default Header;

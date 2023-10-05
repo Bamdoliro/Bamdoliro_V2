@@ -28,7 +28,7 @@ const Container = styled.div`
   justify-content: flex-start;
   width: 100vw;
   height: 100vh;
-  background-color: #3e3d3f;
+  background-color: #191919;
 `;
 
 const StyledCircle = styled(Circle)`

@@ -7,9 +7,10 @@ function Header(props) {
       <Menu>
         <Logo src={process.env.PUBLIC_URL + "./logo.svg"} alt="logo" />
         <li>팀 소개</li>
+        <li>팀 문화</li>
+        <li>프로젝트</li>
         <li>팀 연혁</li>
         <li>멤버 소개</li>
-        <li>팀 문화</li>
       </Menu>
     </HeaderContainer>
   );
@@ -31,13 +32,13 @@ const Menu = styled.ul`
   align-items: center;
   color: white;
   width: 100vw;
-  height: 30px;
+  height: 70px;
   font-family: Pretendard;
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  margin-left: 300px;
+  margin-left: 120px;
 
   li {
     list-style-type: none;
@@ -54,7 +55,7 @@ const Menu = styled.ul`
 `;
 
 const Logo = styled.img`
-  margin-right: 650px;
+  margin-right: 600px;
 `;
 
 export default Header;

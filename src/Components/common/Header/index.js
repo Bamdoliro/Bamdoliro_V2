@@ -5,7 +5,14 @@ function Header(props) {
   return (
     <HeaderContainer activeSection={props.activeSection}>
       <Menu>
-        <Logo src={process.env.PUBLIC_URL + "./logo.svg"} alt="logo" />
+        <Logo
+          src={
+            props.activeSection === "introduce"
+              ? process.env.PUBLIC_URL + "./Logo1.svg"
+              : process.env.PUBLIC_URL + "./logo.svg"
+          }
+          alt="logo"
+        />
         <li className={props.activeSection === "introduce" ? "active" : ""}>
           팀 소개
         </li>

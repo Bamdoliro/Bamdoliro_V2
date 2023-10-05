@@ -1,5 +1,5 @@
-import React, { useRef, useState } from "react";
-import styled from "styled-components";
+import React, { useRef, useState } from 'react';
+import styled from 'styled-components';
 
 const Introduce = () => {
   const texts = [
@@ -22,7 +22,7 @@ const Introduce = () => {
       setTextNumber(textNumber + 1)
       isScrollDown.current = true
       setTimeout(() => {
-        isScrollDown.current = false
+        isScrollDown.current = false;
       }, 1500);
     }
   }
@@ -80,7 +80,7 @@ const Contents = styled.div`
 
   &:before,
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     right: 0;
@@ -90,28 +90,22 @@ const Contents = styled.div`
 
   &:before {
     top: 0;
-    background: linear-gradient(
-      to top,
-      transparent,
-      rgba(255, 255, 255, 1) 40%
-    );
+    background: linear-gradient(to top, transparent, rgba(255, 255, 255, 1) 40%);
   }
 
   &:after {
     bottom: 0;
-    background: linear-gradient(
-      to bottom,
-      transparent,
-      rgba(255, 255, 255, 1) 40%
-    );
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 1) 40%);
   }
 `;
+
+
 
 const Text = styled.h1`
   color: ${(props) => (props.index === props.textNumber ? 'var(--navy, #6699ED)' : 'var(--grey2, #929292)')};
   text-align: center;
   font-family: Pretendard;
-  font-size: ${(props) => (props.index === props.textNumber ? "48px" : "28px")};
+  font-size: ${(props) => (props.index === props.textNumber ? '48px' : '28px')};
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -120,7 +114,7 @@ const Text = styled.h1`
 `;
 
 const Bamdoliro = styled.p`
-  color: var(--grey3, #3e3d3f);
+  color: var(--grey3, #3E3D3F);
   text-align: center;
   font-family: Pretendard;
   font-size: 48px;

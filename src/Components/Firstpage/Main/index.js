@@ -22,7 +22,7 @@ const Font = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  color: #3e3d3f;
+  color: #191919;
 
   position: relative;
   pointer-events: none;

@@ -1,23 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { createGlobalStyle } from "styled-components";
 import Introduce from "./Components/Introduce";
-import FirstPage from "./Components/Firstpage";
-import Header from "./Components/Header/index";
+import Main from "./Components/Main";
+import Header from "./Components/Header";
 import ReactFullpage from "@fullpage/react-fullpage";
+import { ThemeProvider } from "styled-components";
 
 function App() {
+  const [activeSection, setActiveSection] = useState("");
+
+  useEffect(() => {
+    const updateActiveSection = () => {
+      const hash = window.location.hash.replace("#", "");
+      setActiveSection(hash);
+    };
+
+    window.addEventListener("hashchange", updateActiveSection);
+    updateActiveSection();
+
+    return () => {
+      window.removeEventListener("hashchange", updateActiveSection);
+    };
+  }, []);
+
   return (
-    <>
-      <Header />
+    <ThemeProvider theme={{ activeSection }}>
+      <Header activeSection={activeSection} />
+      <GlobalStyle />
+
       <ReactFullpage
         anchors={["main", "introduce"]}
-        render={() => {
+        onLeave={(origin, destination, direction) => {
+          window.location.hash = destination.anchor;
+        }}
+        render={({ state, fullpageApi }) => {
           return (
             <>
-              <GlobalStyle />
-
               <div className="section">
-                <FirstPage />
+                <Main />
               </div>
               <div className="section">
                 <Introduce />
@@ -26,7 +46,7 @@ function App() {
           );
         }}
       />
-    </>
+    </ThemeProvider>
   );
 }
 

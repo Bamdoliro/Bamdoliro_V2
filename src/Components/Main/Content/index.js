@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-function Main() {
+function Content() {
   return (
     <>
       <Bamdoliro>
@@ -68,4 +68,4 @@ const Cursor = styled.div`
   transform: translate(-50%, -50%);
 `;
 
-export default Main;
+export default Content;

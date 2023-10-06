@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { createGlobalStyle } from "styled-components";
-import Introduce from "./Components/Introduce";
-import Main from "./Components/Main";
-import Header from "./Components/Header";
+import { createGlobalStyle,ThemeProvider } from "styled-components";
+import Header from "./Components/common/Header"
+import Main from "./Components/ui/Main";
 import ReactFullpage from "@fullpage/react-fullpage";
-import { ThemeProvider } from "styled-components";
+import Introduce from "./Components/ui/Introduce";
+import Projects from "./Components/ui/Projects";
 
 function App() {
   const [activeSection, setActiveSection] = useState("");
@@ -29,18 +29,22 @@ function App() {
       <GlobalStyle />
 
       <ReactFullpage
-        anchors={["main", "introduce"]}
+        anchors={["main", "introduce","projects"]}
         onLeave={(origin, destination, direction) => {
           window.location.hash = destination.anchor;
         }}
         render={({ state, fullpageApi }) => {
           return (
             <>
+              <GlobalStyle />
               <div className="section">
                 <Main />
               </div>
               <div className="section">
                 <Introduce />
+              </div>
+              <div className="section">
+                <Projects />
               </div>
             </>
           );

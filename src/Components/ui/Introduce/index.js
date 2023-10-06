@@ -1,39 +1,39 @@
-import React, { useRef, useState } from "react";
-import styled from "styled-components";
+import React, { useRef, useState } from 'react';
+import styled from 'styled-components';
 
 const Introduce = () => {
-  const [texts, setTexts] = useState([
-    "🏃끈기있는",
-    "🔥꺼지지 않을 열정이 있는",
-    "🐯무엇이든 맞설 용기있는",
-    "📈끊임없이 성장하는",
-    "🧶엉킨 실타래를 푸는",
-  ]);
-  const wheelDown = useRef(false);
-  const [wheelMove, setWheelMove] = useState(0);
+  const texts = [
+    '🏃끈기있는',
+    '🔥꺼지지 않을 열정이 있는',
+    '🐯무엇이든 맞설 용기있는',
+    '📈끊임없이 성장하는',
+    '🧶엉킨 실타래를 푸는',
+  ];
+  const isScrollDown = useRef(false);
+  const [textNumber, setTextNumber] = useState(0);
 
   const handleWheel = (event) => {
-    if (wheelDown.current || wheelMove >= 4) {
+    if (isScrollDown.current || textNumber >= 4) {
       return;
     }
-    const scroll = event.deltaY;
+    const scroll = event.deltaY
     if (scroll > 0) {
-      console.log("Scrolling down");
-      setWheelMove(wheelMove + 1);
-      wheelDown.current = true;
+      console.log('스크롤됨')
+      setTextNumber(textNumber + 1)
+      isScrollDown.current = true
       setTimeout(() => {
-        wheelDown.current = false;
+        isScrollDown.current = false;
       }, 1500);
     }
-  };
+  }
 
   return (
     <Layout onWheel={handleWheel}>
       <ContentLayout>
-        <Contents wheelMove={wheelMove}>
-          <MoveBox wheelMove={wheelMove}>
+        <Contents>
+          <MoveBox textNumber={textNumber}>
             {texts.map((text, index) => (
-              <Text key={index} index={index} wheelMove={wheelMove}>
+              <Text key={index} index={index} textNumber={textNumber}>
                 {text}
               </Text>
             ))}
@@ -50,7 +50,7 @@ const MoveBox = styled.div`
   flex-direction: column;
   gap: 34px;
   transition: transform 0.5s ease;
-  transform: translateY(${(props) => -props.wheelMove * 71}px);
+  transform: translateY(${(props) => -props.textNumber * 71}px);
 `;
 
 const Layout = styled.div`
@@ -80,7 +80,7 @@ const Contents = styled.div`
 
   &:before,
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     right: 0;
@@ -90,31 +90,22 @@ const Contents = styled.div`
 
   &:before {
     top: 0;
-    background: linear-gradient(
-      to top,
-      transparent,
-      rgba(255, 255, 255, 1) 40%
-    );
+    background: linear-gradient(to top, transparent, rgba(255, 255, 255, 1) 40%);
   }
 
   &:after {
     bottom: 0;
-    background: linear-gradient(
-      to bottom,
-      transparent,
-      rgba(255, 255, 255, 1) 40%
-    );
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 1) 40%);
   }
 `;
 
+
+
 const Text = styled.h1`
-  color: ${(props) =>
-    props.index === props.wheelMove
-      ? "var(--navy, #6699ED)"
-      : "var(--grey2, #929292)"};
+  color: ${(props) => (props.index === props.textNumber ? 'var(--navy, #6699ED)' : 'var(--grey2, #929292)')};
   text-align: center;
   font-family: Pretendard;
-  font-size: ${(props) => (props.index === props.wheelMove ? "48px" : "28px")};
+  font-size: ${(props) => (props.index === props.textNumber ? '48px' : '28px')};
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -123,7 +114,7 @@ const Text = styled.h1`
 `;
 
 const Bamdoliro = styled.p`
-  color: var(--grey3, #3e3d3f);
+  color: var(--grey3, #3E3D3F);
   text-align: center;
   font-family: Pretendard;
   font-size: 48px;

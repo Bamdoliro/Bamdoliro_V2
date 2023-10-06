@@ -13,21 +13,31 @@ function Header(props) {
           }
           alt="logo"
         />
-        <li className={props.activeSection === "introduce" ? "active" : ""}>
+        <MenuItem
+          className={props.activeSection === "introduce" ? "active" : ""}
+        >
           팀 소개
-        </li>
-        <li className={props.activeSection === "introduce" ? "active" : ""}>
+        </MenuItem>
+        <MenuItem
+          className={props.activeSection === "introduce" ? "active" : ""}
+        >
           팀 문화
-        </li>
-        <li className={props.activeSection === "introduce" ? "active" : ""}>
+        </MenuItem>
+        <MenuItem
+          className={props.activeSection === "introduce" ? "active" : ""}
+        >
           프로젝트
-        </li>
-        <li className={props.activeSection === "introduce" ? "active" : ""}>
+        </MenuItem>
+        <MenuItem
+          className={props.activeSection === "introduce" ? "active" : ""}
+        >
           팀 연혁
-        </li>
-        <li className={props.activeSection === "introduce" ? "active" : ""}>
+        </MenuItem>
+        <MenuItem
+          className={props.activeSection === "introduce" ? "active" : ""}
+        >
           멤버 소개
-        </li>
+        </MenuItem>
       </Menu>
     </HeaderContainer>
   );
@@ -37,10 +47,8 @@ const HeaderContainer = styled.div`
   position: fixed;
   top: 0;
   z-index: 1000;
-
   background-color: ${(props) =>
     props.activeSection === "introduce" ? "white" : "rgba(62, 61, 63, 0.3)"};
-
   border: 1px solid rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(5px);
 `;
@@ -57,29 +65,33 @@ const Menu = styled.ul`
   font-weight: 600;
   line-height: normal;
   margin-left: 120px;
+`;
 
-  li {
-    list-style-type: none;
-    margin-right: 20px;
-    cursor: pointer;
+const MenuItem = styled.li`
+  list-style-type: none;
+  margin-right: 20px;
+  cursor: pointer;
+  position: relative;
 
-    &:hover {
-      border-radius: 4px;
-      background: rgba(238, 238, 238, 0.3);
-      padding: 8px 12px;
-      line-height: initial;
-    }
+  color: ${(props) => (props.className === "active" ? "black" : "white")};
 
-    &.active {
-      color: black;
-    }
+  &:hover::before {
+    content: "";
+    position: absolute;
+    top: -20%;
+    left: -10px;
+    right: -10px;
+    bottom: -20%;
+    background: rgba(238, 238, 238, 0.3);
+    z-index: -1;
+    border-radius: 4px;
   }
 `;
 
 const Logo = styled.img`
   width: 170px;
   height: 20px;
-  margin-right: 600px;
+  margin-right: 640px;
 `;
 
 export default Header;

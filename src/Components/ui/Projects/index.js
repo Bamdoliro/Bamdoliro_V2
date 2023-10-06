@@ -1,10 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 import maru_symbol from '../../../assets/maru-symbol.svg'
+import check_icon from '../../../assets/Icon-Check.svg'
 
 const Projects = () => {
+  
   return (
     <Container>
+      <Header_icon>
+        <Header_maru_layout>
+          <Header_maru src={maru_symbol} />
+        </Header_maru_layout>
+      </Header_icon>
       <Content>
         <Text_content>
           <Project>Project</Project>
@@ -28,7 +35,7 @@ const Container = styled.div`
 `
 const Content = styled.div`
   display: flex;
-  gap: 400px;
+  gap: 330px;
 `
 const Icon_layout = styled.div`
   display: flex;
@@ -47,6 +54,7 @@ const Icon = styled.img`
 `
 const Text_content = styled.div`
   margin-top: 64px;
+  width: 257px;
 `
 const Project = styled.p`
   color: #6699ED;
@@ -72,5 +80,31 @@ const Project_info = styled.p`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+`
+const Header_icon = styled.div`
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translate(-50%,0);
+`
+const Header_maru_layout = styled.button`
+  display: flex;
+  width: 77px;
+  height: 77px;
+  padding: 17px 15px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 180px;
+  background: #FFF;
+  box-shadow: 1px 2px 5px 0px rgba(184, 184, 184, 0.60);
+  border: none;
+
+  &:hover {
+    
+  }
+`
+const Header_maru = styled.img`
+  width: 48px;
+  height: 44px;
 `
 export default Projects;

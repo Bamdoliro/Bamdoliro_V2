@@ -1,16 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { createGlobalStyle } from "styled-components";
-import FirstPage from "./Components/ui/Firstpage";
 import Header from "./Components/common/Header"
-import Introduce from "./Components/Introduce";
-import Main from "./Components/Main";
-import Header from "./Components/Header";
+import Main from "./Components/ui/Main";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Introduce from "./Components/ui/Introduce";
 import Projects from "./Components/ui/Projects";
 import { ThemeProvider } from "styled-components";
-import Introduce from "./Components/ui/Introduce";
-import Projects from "./Components/ui/Projects";
 
 function App() {
   const [activeSection, setActiveSection] = useState("");

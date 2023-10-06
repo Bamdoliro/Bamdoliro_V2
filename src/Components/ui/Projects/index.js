@@ -10,6 +10,7 @@ const Projects = () => {
       <Header_icon>
         <Header_maru_layout>
           <Header_maru src={maru_symbol} />
+          <CheckIcon src={check_icon} />
         </Header_maru_layout>
       </Header_icon>
       <Content>
@@ -83,7 +84,7 @@ const Project_info = styled.p`
 `
 const Header_icon = styled.div`
   position: absolute;
-  top: 8%;
+  top: 10%;
   left: 50%;
   transform: translate(-50%,0);
 `
@@ -98,13 +99,17 @@ const Header_maru_layout = styled.button`
   background: #FFF;
   box-shadow: 1px 2px 5px 0px rgba(184, 184, 184, 0.60);
   border: none;
-
-  &:hover {
-    
-  }
 `
 const Header_maru = styled.img`
   width: 48px;
   height: 44px;
+`
+const CheckIcon = styled.img`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center precisely */
+  width: 77px;
+  height: 77px;
 `
 export default Projects;

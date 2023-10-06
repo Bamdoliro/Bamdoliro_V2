@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle,ThemeProvider } from "styled-components";
 import Header from "./Components/common/Header"
 import Main from "./Components/ui/Main";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Introduce from "./Components/ui/Introduce";
 import Projects from "./Components/ui/Projects";
-import { ThemeProvider } from "styled-components";
 
 function App() {
   const [activeSection, setActiveSection] = useState("");

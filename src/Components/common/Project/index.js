@@ -47,7 +47,6 @@ const Icon = styled.img`
 `
 const Text_content = styled.div`
   margin-top: 64px;
-  width: 257px;
 `
 const Project_title = styled.p`
   color: #6699ED;

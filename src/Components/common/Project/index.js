@@ -1,25 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-import check_icon from '../../../assets/Icon-Check.svg'
 import maru_symbol from '../../../assets/maru-symbol.svg'
 
-const Project = () => {
+const Project = ({title, info, symbol}) => {
   return (
     <Container>
-      <Header_icon>
-        <Header_maru_layout>
-          <Header_maru src={maru_symbol} />
-          <CheckIcon src={check_icon} />
-        </Header_maru_layout>
-      </Header_icon>
       <Content>
         <Text_content>
           <Project_title>Project</Project_title>
-          <Project_name>마루</Project_name>
-          <Project_info>마루는 부산소마고의<br />입학 지원서비스입니다.</Project_info>
+          <Project_name>{title}</Project_name>
+          <Project_info>{info}</Project_info>
         </Text_content>
         <Icon_layout>
-          <Icon src={maru_symbol} />
+          <Icon src={require(`../../../assets/${symbol}`)} />
         </Icon_layout>
       </Content>
     </Container>
@@ -80,36 +73,8 @@ const Project_info = styled.p`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  white-space:pre-wrap;
 `
-const Header_icon = styled.div`
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%,0);
-`
-const Header_maru_layout = styled.button`
-  display: flex;
-  width: 77px;
-  height: 77px;
-  padding: 17px 15px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 180px;
-  background: #FFF;
-  box-shadow: 1px 2px 5px 0px rgba(184, 184, 184, 0.60);
-  border: none;
-`
-const Header_maru = styled.img`
-  width: 48px;
-  height: 44px;
-`
-const CheckIcon = styled.img`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Center precisely */
-  width: 77px;
-  height: 77px;
-`
+
 
 export default Project;

@@ -2,12 +2,9 @@ import React, { useState } from 'react';
 import Project from '../../common/Project';
 import projects from '../../../datas/projects.json'
 import check_icon from '../../../assets/Icon-Check.svg'
-import maru_symbol from '../../../assets/maru-symbol.svg'
 import styled from 'styled-components';
-import gati_symbol from '../../../assets/Gati.svg'
 
 const Projects = () => {
-  const headerIconList = [maru_symbol, gati_symbol]
   const [selectedIconIndex, setSelectedIconIndex] = useState(0);
 
   const onHeaderIconClick = (index) => {
@@ -16,10 +13,10 @@ const Projects = () => {
   return (
     <>
       <Header_icon>
-        {headerIconList.map((item, index) => {
+        {projects.map((item, index) => {
           return (
             <Header_maru_layout key={index} onClick={() => onHeaderIconClick(index)}>
-              <Header_maru src={item} />
+              <Header_maru src={require(`../../../assets/${item.img}`)} />
               {selectedIconIndex === index && <CheckIcon src={check_icon} />}
             </Header_maru_layout>
           )

@@ -30,10 +30,10 @@ function App() {
 
       <ReactFullpage
         anchors={["main", "introduce","projects"]}
-        onLeave={(origin, destination, direction) => {
+        onLeave={(destination) => {
           window.location.hash = destination.anchor;
         }}
-        render={({ state, fullpageApi }) => {
+        render={() => {
           return (
             <>
               <GlobalStyle />

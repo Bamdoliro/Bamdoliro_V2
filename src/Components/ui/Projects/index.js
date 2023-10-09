@@ -15,10 +15,10 @@ const Projects = () => {
       <Header_icon>
         {projects.map((item, index) => {
           return (
-            <Header_maru_layout key={index} onClick={() => onHeaderIconClick(index)}>
+            <Header_layout key={index} onClick={() => onHeaderIconClick(index)}>
               <Header_maru src={require(`../../../assets/${item.img}`)} />
               {selectedIconIndex === index && <CheckIcon src={check_icon} />}
-            </Header_maru_layout>
+            </Header_layout>
           )
         })}
       </Header_icon>
@@ -37,7 +37,7 @@ const Header_icon = styled.div`
   display: flex;
   gap: 12px;
 `
-const Header_maru_layout = styled.button`
+const Header_layout = styled.button`
   display: flex;
   width: 77px;
   height: 77px;
@@ -49,6 +49,7 @@ const Header_maru_layout = styled.button`
   box-shadow: 1px 2px 5px 0px rgba(184, 184, 184, 0.60);
   border: none;
   position: relative;
+  cursor:pointer;
 `
 const Header_maru = styled.img`
   width: 48px;

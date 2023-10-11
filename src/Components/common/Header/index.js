@@ -7,25 +7,61 @@ function Header(props) {
       <Menu>
         <Logo
           src={
-            props.activeSection === "main"
-              ? process.env.PUBLIC_URL + "./logo.svg"
-              : process.env.PUBLIC_URL + "./Logo1.svg"
+            props.activeSection === "introduce" ||
+            props.activeSection === "projects"
+              ? process.env.PUBLIC_URL + "/Logo1.svg"
+              : process.env.PUBLIC_URL + "/logo.svg"
           }
           alt="logo"
         />
-        <MenuItem className={props.activeSection === "main" ? "active" : ""}>
+        <MenuItem
+          className={
+            props.activeSection === "introduce" ||
+            props.activeSection === "projects"
+              ? "active"
+              : ""
+          }
+        >
           팀 소개
         </MenuItem>
-        <MenuItem className={props.activeSection === "main" ? "active" : ""}>
+        <MenuItem
+          className={
+            props.activeSection === "introduce" ||
+            props.activeSection === "projects"
+              ? "active"
+              : ""
+          }
+        >
           팀 문화
         </MenuItem>
-        <MenuItem className={props.activeSection === "main" ? "active" : ""}>
+        <MenuItem
+          className={
+            props.activeSection === "introduce" ||
+            props.activeSection === "projects"
+              ? "active"
+              : ""
+          }
+        >
           프로젝트
         </MenuItem>
-        <MenuItem className={props.activeSection === "main" ? "active" : ""}>
+        <MenuItem
+          className={
+            props.activeSection === "introduce" ||
+            props.activeSection === "projects"
+              ? "active"
+              : ""
+          }
+        >
           팀 연혁
         </MenuItem>
-        <MenuItem className={props.activeSection === "main" ? "active" : ""}>
+        <MenuItem
+          className={
+            props.activeSection === "introduce" ||
+            props.activeSection === "projects"
+              ? "active"
+              : ""
+          }
+        >
           멤버 소개
         </MenuItem>
       </Menu>
@@ -38,9 +74,9 @@ const HeaderContainer = styled.div`
   top: 0;
   z-index: 1000;
   background-color: ${(props) =>
-    props.activeSection === "main"
-      ? "rgba(62, 61, 63, 0.30);"
-      : "rgba(255, 255, 255, 0.06)"};
+    props.activeSection === "introduce" || props.activeSection === "projects"
+      ? "rgba(255, 255, 255, 0.06)"
+      : "rgba(62, 61, 63, 0.30)"};
   border: 1px solid rgba(62, 61, 63, 0.3);
   backdrop-filter: blur(5px);
 `;
@@ -56,7 +92,7 @@ const Menu = styled.ul`
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  margin-left: 150px;
+  margin-left: 170px;
 `;
 
 const MenuItem = styled.li`
@@ -65,7 +101,7 @@ const MenuItem = styled.li`
   cursor: pointer;
   position: relative;
 
-  color: ${(props) => (props.className === "active" ? "white" : "black")};
+  color: ${(props) => (props.className === "active" ? "black" : "white")};
 
   &:hover::before {
     content: "";
@@ -83,7 +119,7 @@ const MenuItem = styled.li`
 const Logo = styled.img`
   width: 170px;
   height: 20px;
-  margin-right: 580px;
+  margin-right: 570px;
 `;
 
 export default Header;

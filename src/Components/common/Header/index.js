@@ -2,6 +2,8 @@ import styled from "styled-components";
 import React from "react";
 
 function Header(props) {
+  const Items = ["팀 소개", "팀 문화", "프로젝트", "팀 연혁", "멤버 소개"];
+
   return (
     <HeaderContainer activeSection={props.activeSection}>
       <Menu>
@@ -14,56 +16,19 @@ function Header(props) {
           }
           alt="logo"
         />
-        <MenuItem
-          className={
-            props.activeSection === "introduce" ||
-            props.activeSection === "projects"
-              ? "active"
-              : ""
-          }
-        >
-          팀 소개
-        </MenuItem>
-        <MenuItem
-          className={
-            props.activeSection === "introduce" ||
-            props.activeSection === "projects"
-              ? "active"
-              : ""
-          }
-        >
-          팀 문화
-        </MenuItem>
-        <MenuItem
-          className={
-            props.activeSection === "introduce" ||
-            props.activeSection === "projects"
-              ? "active"
-              : ""
-          }
-        >
-          프로젝트
-        </MenuItem>
-        <MenuItem
-          className={
-            props.activeSection === "introduce" ||
-            props.activeSection === "projects"
-              ? "active"
-              : ""
-          }
-        >
-          팀 연혁
-        </MenuItem>
-        <MenuItem
-          className={
-            props.activeSection === "introduce" ||
-            props.activeSection === "projects"
-              ? "active"
-              : ""
-          }
-        >
-          멤버 소개
-        </MenuItem>
+        {Items.map((item, index) => (
+          <MenuItem
+            key={index}
+            className={
+              props.activeSection === "introduce" ||
+              props.activeSection === "projects"
+                ? "active"
+                : ""
+            }
+          >
+            {item}
+          </MenuItem>
+        ))}
       </Menu>
     </HeaderContainer>
   );

@@ -10,6 +10,7 @@ function Header(props) {
         <Logo
           src={
             props.activeSection === "introduce" ||
+            props.activeSection === "culture" ||
             props.activeSection === "projects"
               ? process.env.PUBLIC_URL + "/Logo1.svg"
               : process.env.PUBLIC_URL + "/logo.svg"
@@ -21,6 +22,7 @@ function Header(props) {
             key={index}
             className={
               props.activeSection === "introduce" ||
+              props.activeSection === "culture" ||
               props.activeSection === "projects"
                 ? "active"
                 : ""
@@ -39,10 +41,12 @@ const HeaderContainer = styled.div`
   top: 0;
   z-index: 1000;
   background-color: ${(props) =>
-    props.activeSection === "introduce" || props.activeSection === "projects"
+    props.activeSection === "introduce" ||
+    props.activeSection === "culture" ||
+    props.activeSection === "projects"
       ? "rgba(255, 255, 255, 0.06)"
       : "rgba(62, 61, 63, 0.30)"};
-  border: 1px solid rgba(62, 61, 63, 0.3);
+  border-bottom: 1px solid rgba(62, 61, 63, 0.3);
   backdrop-filter: blur(5px);
 `;
 
@@ -75,7 +79,7 @@ const MenuItem = styled.li`
     left: -12px;
     right: -12px;
     bottom: -8px;
-    background: rgba(238, 238, 238, 0.3);
+    background: rgba(238, 238, 238, 0.6);
     z-index: -1;
     border-radius: 6px;
   }

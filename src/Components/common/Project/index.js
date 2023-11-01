@@ -61,6 +61,7 @@ const Project_name = styled.p`
   font-size: 65px;
   font-style: normal;
   margin-top: 8px;
+  margin-bottom: 30px;
   font-weight: 700;
   line-height: normal;
 `;
@@ -72,6 +73,7 @@ const Project_info = styled.p`
   font-weight: 700;
   line-height: normal;
   white-space: pre-wrap;
+  width: 400px;
 `;
 
 export default Project;

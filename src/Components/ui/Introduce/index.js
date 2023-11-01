@@ -16,16 +16,16 @@ const Introduce = () => {
     if (isScrollDown.current || textNumber >= 4) {
       return;
     }
-    const scroll = event.deltaY
+    const scroll = event.deltaY;
     if (scroll > 0) {
-      console.log('스크롤됨')
-      setTextNumber(textNumber + 1)
-      isScrollDown.current = true
+      console.log('scrolled');
+      setTextNumber(textNumber + 1);
+      isScrollDown.current = true;
       setTimeout(() => {
         isScrollDown.current = false;
       }, 1500);
     }
-  }
+  };
 
   return (
     <Layout onWheel={handleWheel}>

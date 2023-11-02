@@ -73,7 +73,7 @@ const Project_info = styled.p`
   font-weight: 700;
   line-height: normal;
   white-space: pre-wrap;
-  width: 400px;
+  width: 440px;
 `;
 
 export default Project;

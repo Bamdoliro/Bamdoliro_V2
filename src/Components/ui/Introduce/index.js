@@ -1,13 +1,13 @@
-import React, { useRef, useState } from 'react';
-import styled from 'styled-components';
+import React, { useRef, useState } from "react";
+import styled from "styled-components";
 
 const Introduce = () => {
   const texts = [
-    '🏃끈기있는',
-    '🔥꺼지지 않을 열정이 있는',
-    '🐯무엇이든 맞설 용기있는',
-    '📈끊임없이 성장하는',
-    '🧶엉킨 실타래를 푸는',
+    "🏃끈기있는",
+    "🔥꺼지지 않을 열정이 있는",
+    "🐯무엇이든 맞설 용기있는",
+    "📈끊임없이 성장하는",
+    "🧶엉킨 실타래를 푸는",
   ];
   const isScrollDown = useRef(false);
   const [textNumber, setTextNumber] = useState(0);
@@ -18,7 +18,7 @@ const Introduce = () => {
     }
     const scroll = event.deltaY;
     if (scroll > 0) {
-      console.log('scrolled');
+      console.log("scrolled");
       setTextNumber(textNumber + 1);
       isScrollDown.current = true;
       setTimeout(() => {
@@ -80,7 +80,7 @@ const Contents = styled.div`
 
   &:before,
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     right: 0;
@@ -90,22 +90,31 @@ const Contents = styled.div`
 
   &:before {
     top: 0;
-    background: linear-gradient(to top, transparent, rgba(255, 255, 255, 1) 40%);
+    background: linear-gradient(
+      to top,
+      transparent,
+      rgba(255, 255, 255, 1) 40%
+    );
   }
 
   &:after {
     bottom: 0;
-    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 1) 40%);
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(255, 255, 255, 1) 40%
+    );
   }
 `;
 
-
-
 const Text = styled.h1`
-  color: ${(props) => (props.index === props.textNumber ? 'var(--navy, #6699ED)' : 'var(--grey2, #929292)')};
+  color: ${(props) =>
+    props.index === props.textNumber
+      ? "var(--navy, #6699ED)"
+      : "var(--grey2, #929292)"};
   text-align: center;
   font-family: Pretendard;
-  font-size: ${(props) => (props.index === props.textNumber ? '48px' : '28px')};
+  font-size: ${(props) => (props.index === props.textNumber ? "48px" : "28px")};
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -114,7 +123,7 @@ const Text = styled.h1`
 `;
 
 const Bamdoliro = styled.p`
-  color: var(--grey3, #3E3D3F);
+  color: var(--grey3, #3e3d3f);
   text-align: center;
   font-family: Pretendard;
   font-size: 48px;

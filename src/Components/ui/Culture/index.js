@@ -1,34 +1,147 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 
 const Culture = () => {
-  const [isHovered, setIsHovered] = useState(false);
+  const texts = [
+    "주저없는 소통",
+    "수평적인 문화 지향",
+    "다소 과격한 성장 의지",
+  ];
+  const isScrollDown = useRef(false);
+  const [textNumber, setTextNumber] = useState(0);
 
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
+  const handleWheel = (event) => {
+    if (isScrollDown.current || textNumber >= 2) {
+      return;
+    }
+    const scroll = event.deltaY;
+    if (scroll > 0) {
+      console.log("scrolled");
+      setTextNumber(textNumber + 1);
+      isScrollDown.current = true;
+      setTimeout(() => {
+        isScrollDown.current = false;
+      }, 1500);
+    }
   };
 
   return (
-    <div>
-      <Font>
-        <Team>Team Culture</Team>
-        <Bamdoliro>‘밤돌이로’다움이란</Bamdoliro>
-      </Font>
-      <Test>수평적인 문화 지향</Test>
-      <Logo
-        src={process.env.PUBLIC_URL + "/culture.svg"}
-        alt="logo"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      />
-      {isHovered && <HoveredText>가나다라</HoveredText>}
-    </div>
+    <Layout onWheel={handleWheel}>
+      <ContentLayout>
+        <Contents>
+          <MoveBox textNumber={textNumber}>
+            {texts.map((text, index) => (
+              <Text key={index} index={index} textNumber={textNumber}>
+                {text}
+              </Text>
+            ))}
+          </MoveBox>
+        </Contents>
+        <Font>
+          <Team>Team Culture</Team>
+          <Bamdoliro>‘밤돌이로’다움이란</Bamdoliro>
+        </Font>
+        <Image
+          src={process.env.PUBLIC_URL + "/culture.svg"}
+          alt="Image"
+          index={0}
+          textNumber={textNumber}
+        />
+        <Image
+          src={process.env.PUBLIC_URL + "/culture2.svg"}
+          alt="Image"
+          index={1}
+          textNumber={textNumber}
+        />
+        <Image
+          src={process.env.PUBLIC_URL + "/culture3.svg"}
+          alt="Image"
+          index={2}
+          textNumber={textNumber}
+        />
+      </ContentLayout>
+    </Layout>
   );
 };
+
+const MoveBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  transition: transform 0.5s ease;
+  transform: translateY(${(props) => -props.textNumber * 71}px);
+`;
+
+const Layout = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+
+const ContentLayout = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 51px;
+`;
+
+const Contents = styled.div`
+  transition: transform 0.5s ease;
+  height: 350px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  top: 130px;
+  right: 390px;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 105px;
+    z-index: 1;
+  }
+
+  &:before {
+    top: 0;
+    background: linear-gradient(
+      to top,
+      transparent,
+      rgba(255, 255, 255, 1) 40%
+    );
+  }
+
+  &:after {
+    bottom: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(255, 255, 255, 1) 40%
+    );
+  }
+`;
+
+const Text = styled.h1`
+  color: ${(props) =>
+    props.index === props.textNumber
+      ? "var(--grey3, #3E3D3F)"
+      : "var(--grey2, #929292)"};
+  text-align: center;
+  font-family: Pretendard;
+  font-size: ${(props) => (props.index === props.textNumber ? "48px" : "28px")};
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding-left: 10px;
+  padding-right: 10px;
+`;
 
 const Font = styled.div`
   font-family: Pretendard;
@@ -36,7 +149,8 @@ const Font = styled.div`
   line-height: normal;
   position: absolute;
   left: 162px;
-  top: 193px;
+  top: 170px;
+  user-select: none;
 `;
 const Bamdoliro = styled.div`
   font-size: 40px;
@@ -47,39 +161,14 @@ const Team = styled.div`
   font-size: 36px;
   font-weight: 500;
 `;
-
-const Test = styled.div`
-  color: var(--grey3, #3e3d3f);
-  text-align: center;
-  font-family: Pretendard;
-  font-size: 48px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  position: absolute;
-  top: 512px;
-  left: 162px;
-`;
-
-const Logo = styled.img`
+const Image = styled.img`
   width: 429px;
   height: 592px;
   position: absolute;
   left: 850px;
   top: 100px;
-`;
-
-const HoveredText = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: Pretendard;
-  font-size: 24px;
-  color: white;
-  background: rgba(0, 0, 0, 0.7);
-  padding: 10px 20px;
-  border-radius: 5px;
+  opacity: ${(props) => (props.index === props.textNumber ? 1 : 0)};
+  transition: opacity 0.5s ease;
 `;
 
 export default Culture;

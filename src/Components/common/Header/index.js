@@ -65,7 +65,7 @@ const MenuItem = styled.li`
   margin-right: 30px;
   cursor: pointer;
   position: relative;
-
+  
   color: ${(props) => (props.className === "active" ? "black" : "white")};
 
   &:hover::before {

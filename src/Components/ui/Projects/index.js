@@ -6,16 +6,12 @@ import styled from 'styled-components';
 
 const Projects = () => {
   const [selectedIconIndex, setSelectedIconIndex] = useState(0);
-
-  const onHeaderIconClick = (index) => {
-    setSelectedIconIndex(index);
-  };
   return (
     <>
       <Header_icon>
         {projects.map((item, index) => {
           return (
-            <Header_layout key={index} onClick={() => onHeaderIconClick(index)}>
+            <Header_layout key={index} onClick={() => setSelectedIconIndex(index)}>
               <Header_maru src={require(`../../../assets/${item.img}`)} />
               {selectedIconIndex === index && <CheckIcon src={check_icon} />}
             </Header_layout>

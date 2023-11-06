@@ -5,7 +5,7 @@ import Main from "./Components/ui/Main";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Introduce from "./Components/ui/Introduce";
 import Projects from "./Components/ui/Projects";
-import History from "./Components/ui/History";
+import Histories from "./Components/ui/Histories";
 
 function App() {
   const [activeSection, setActiveSection] = useState("");
@@ -48,7 +48,7 @@ function App() {
                 <Projects />
               </div>
               <div className="section">
-                <History />
+                <Histories />
               </div>
             </>
           );

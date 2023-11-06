@@ -96,7 +96,7 @@ const Contents = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   position: relative;
-  top: 130px;
+  top: 80px;
   right: 390px;
 
   &:before,
@@ -135,7 +135,7 @@ const Text = styled.h1`
       : "var(--grey2, #929292)"};
   text-align: center;
   font-family: Pretendard;
-  font-size: ${(props) => (props.index === props.textNumber ? "48px" : "28px")};
+  font-size: ${(props) => (props.index === props.textNumber ? "40px" : "28px")};
   font-style: normal;
   font-weight: 700;
   line-height: normal;

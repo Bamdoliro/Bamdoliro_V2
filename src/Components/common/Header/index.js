@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import React from "react";
+import black_logo from "../../../assets/black_logo.svg";
+import white_logo from "../../../assets/white_logo.svg";
 
 function Header(props) {
   const Items = ["팀 소개", "팀 문화", "프로젝트", "팀 연혁", "멤버 소개"];
@@ -11,9 +13,10 @@ function Header(props) {
           src={
             props.activeSection === "introduce" ||
             props.activeSection === "culture" ||
-            props.activeSection === "projects"
-              ? process.env.PUBLIC_URL + "/Logo1.svg"
-              : process.env.PUBLIC_URL + "/logo.svg"
+            props.activeSection === "projects" ||
+            props.activeSection === "history"
+              ? black_logo
+              : white_logo
           }
           alt="logo"
         />
@@ -23,7 +26,8 @@ function Header(props) {
             className={
               props.activeSection === "introduce" ||
               props.activeSection === "culture" ||
-              props.activeSection === "projects"
+              props.activeSection === "projects" ||
+              props.activeSection === "history"
                 ? "active"
                 : ""
             }
@@ -43,7 +47,8 @@ const HeaderContainer = styled.div`
   background-color: ${(props) =>
     props.activeSection === "introduce" ||
     props.activeSection === "culture" ||
-    props.activeSection === "projects"
+    props.activeSection === "projects" ||
+    props.activeSection === "history"
       ? "rgba(255, 255, 255, 0.06)"
       : "rgba(62, 61, 63, 0.30)"};
   border-bottom: 1px solid rgba(62, 61, 63, 0.3);
@@ -66,7 +71,7 @@ const MenuItem = styled.li`
   margin-right: 30px;
   cursor: pointer;
   position: relative;
-  
+
   color: ${(props) => (props.className === "active" ? "black" : "white")};
 
   &:hover::before {

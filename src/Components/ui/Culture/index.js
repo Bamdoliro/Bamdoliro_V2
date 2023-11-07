@@ -1,5 +1,8 @@
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
+import conversation from "../../../assets/culture.svg";
+import culture from "../../../assets/culture2.svg";
+import grow from "../../../assets/culture3.svg";
 
 const Culture = () => {
   const texts = [
@@ -42,23 +45,13 @@ const Culture = () => {
           <Bamdoliro>‘밤돌이로’다움이란</Bamdoliro>
         </Font>
         <Image
-          src={process.env.PUBLIC_URL + "/culture.svg"}
+          src={conversation}
           alt="Image"
           index={0}
           textNumber={textNumber}
         />
-        <Image
-          src={process.env.PUBLIC_URL + "/culture2.svg"}
-          alt="Image"
-          index={1}
-          textNumber={textNumber}
-        />
-        <Image
-          src={process.env.PUBLIC_URL + "/culture3.svg"}
-          alt="Image"
-          index={2}
-          textNumber={textNumber}
-        />
+        <Image src={culture} alt="Image" index={1} textNumber={textNumber} />
+        <Image src={grow} alt="Image" index={2} textNumber={textNumber} />
       </ContentLayout>
     </Layout>
   );

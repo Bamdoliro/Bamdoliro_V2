@@ -1,39 +1,35 @@
-import React from 'react';
-import year2022 from '../../../datas/History/2022.json'
-import year2023 from '../../../datas/History/2023.json'
+import React, { useEffect } from 'react';
+import years from "../../../datas/years.json"
 import checkIcon from '../../../assets/Icon-Check.svg'
 import styled from 'styled-components';
 
-const History = ({selectedMonthIndex,setSelectedIconIndex,selectedYear}) => {
-  const getContentWithLineBreaks = (content) => {
-    return content.split('\n').map((line, index) => (
-      <React.Fragment key={index}>
-        {line}
-        <br />
-      </React.Fragment>
-    ));
-  };
-  const selectedData = selectedYear === 0 ? year2022 : year2023;
+const History = ({ selectedMonthIndex, setSelectedMonthIndex, selectedYear }) => {
+
+  useEffect(() => {
+    setSelectedMonthIndex(0)
+  }, [selectedYear])
+
   return (
     <MainContent>
-        <MonthButtonLayout>
-          <MonthsButton>
-            {selectedData.map((item,index) => {
-                return (
-                  <MonthButton key={index} onClick={() => setSelectedIconIndex(index)}>
-                <Month>{item.month}</Month>
-                {selectedMonthIndex === index && <CheckIcon src={checkIcon} />}
-              </MonthButton>
-                )
-            })}
-          </MonthsButton>
-        </MonthButtonLayout>
-        <BlueCircle>
-          <Content>{getContentWithLineBreaks(selectedData[selectedMonthIndex].content)}</Content>
-        </BlueCircle>
-      </MainContent>
+      <MonthButtonLayout>
+        <MonthsButton>
+          {years[selectedYear].detail.map((item, index) => (
+            <MonthButton key={index} onClick={() => setSelectedMonthIndex(index)}>
+              <Month>{item.month}</Month>
+              {selectedMonthIndex === index && <CheckIcon src={checkIcon} />}
+            </MonthButton>
+          ))}
+        </MonthsButton>
+      </MonthButtonLayout>
+      <BlueCircle>
+        <Content>
+          {years[selectedYear].detail[selectedMonthIndex]?.content}
+        </Content>
+      </BlueCircle>
+    </MainContent>
   );
 };
+
 
 const MainContent = styled.div`
   position: absolute;
@@ -55,14 +51,12 @@ const BlueCircle = styled.div`
 `
 const Content = styled.p`
   color: var(--white, #FFF);
-  font-family: Pretendard;
   font-size: 22px;
-  font-style: normal;
   font-weight: 500;
-  line-height: normal;
   padding-top: 170px;
   padding-left: 120px;
   width: 500px;
+  white-space: pre-line;
 `
 const MonthButtonLayout = styled.div`
   display: flex;
@@ -93,11 +87,8 @@ const MonthButton = styled.button`
 `
 const Month = styled.p`
   color: var(--grey3, #3E3D3F);
-  font-family: Pretendard;
   font-size: 60px;
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
 `
 const CheckIcon = styled.img`
   position: absolute;

@@ -113,11 +113,8 @@ const Text = styled.h1`
       ? "var(--navy, #6699ED)"
       : "var(--grey2, #929292)"};
   text-align: center;
-  font-family: Pretendard;
   font-size: ${(props) => (props.index === props.textNumber ? "48px" : "28px")};
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  font-weight: bold;
   padding-left: 10px;
   padding-right: 10px;
 `;
@@ -125,11 +122,8 @@ const Text = styled.h1`
 const Bamdoliro = styled.p`
   color: var(--grey3, #3e3d3f);
   text-align: center;
-  font-family: Pretendard;
   font-size: 48px;
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
 `;
 
 export default Introduce;

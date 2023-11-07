@@ -31,7 +31,7 @@ function App() {
       <GlobalStyle />
 
       <ReactFullpage
-        anchors={["main", "introduce", "culture", "projects"]}
+        anchors={["main", "introduce", "culture", "projects","history"]}
         onLeave={(destination) => {
           window.location.hash = destination.anchor;
         }}
@@ -66,6 +66,9 @@ const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
+    font-family: pretendard;
+    line-height: normal;
+    font-style: normal;
   }
   .fp-watermark {
     display: none;

@@ -56,11 +56,8 @@ const Menu = styled.ul`
   color: black;
   width: 100vw;
   height: 60px;
-  font-family: Pretendard;
   font-size: 20px;
-  font-style: normal;
   font-weight: 600;
-  line-height: normal;
   margin-left: 170px;
 `;
 

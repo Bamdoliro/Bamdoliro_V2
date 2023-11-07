@@ -38,6 +38,7 @@ const MainContent = styled.div`
   height: 65%;
   display: flex;
   justify-content: flex-start;
+  overflow: hidden;
 `
 const BlueCircle = styled.div`
   position: absolute;

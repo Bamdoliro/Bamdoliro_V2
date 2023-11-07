@@ -7,6 +7,7 @@ import Introduce from "./Components/ui/Introduce";
 import Projects from "./Components/ui/Projects";
 import Culture from "./Components/ui/Culture";
 import Histories from "./Components/ui/Histories";
+import Member from "./Components/ui/Member";
 
 function App() {
   const [activeSection, setActiveSection] = useState("");
@@ -31,7 +32,7 @@ function App() {
       <GlobalStyle />
 
       <ReactFullpage
-        anchors={["main", "introduce", "culture", "projects","history"]}
+        anchors={["main", "introduce", "culture", "projects","history","Member"]}
         onLeave={(destination) => {
           window.location.hash = destination.anchor;
         }}
@@ -53,6 +54,9 @@ function App() {
               </div>
               <div className="section">
                 <Histories />
+              </div>
+              <div className="section">
+                <Member />
               </div>
             </>
           );

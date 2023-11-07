@@ -17,23 +17,16 @@ function Content() {
 }
 
 const Font = styled.div`
-  font-family: Pretendard;
   font-size: 60px;
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
   color: #191919;
-
   position: relative;
   pointer-events: none;
 `;
 
 const Text = styled.div`
-  font-family: Pretendard;
   font-size: 15px;
-  font-style: normal;
   font-weight: bold;
-  line-height: normal;
   color: white;
   cursor: pointer;
 `;

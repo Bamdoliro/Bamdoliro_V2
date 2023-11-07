@@ -13,13 +13,13 @@ const Histories = () => {
         <SubTitle>계속해서 남겨질</SubTitle>
         <MainTitle>밤돌이로의 발자취</MainTitle>
       </TitleLayout>
-      <YearButton>
+      <YearButtonLayout>
         {years.map((year, index) => (
-          <Button2022 key={index} onClick={() => setSelectedYear(index)} selected={selectedYear === index}>
+          <YearButton key={index} onClick={() => setSelectedYear(index)} selected={selectedYear === index}>
             {year}
-          </Button2022>
+          </YearButton>
         ))}
-      </YearButton>
+      </YearButtonLayout>
       <History
         setSelectedMonthIndex={setSelectedMonthIndex}
         selectedMonthIndex={selectedMonthIndex}
@@ -45,29 +45,23 @@ const TitleLayout = styled.div`
 const SubTitle = styled.p`
   color: var(--grey3, #3E3D3F);
   text-align: center;
-  font-family: Pretendard;
   font-size: 35px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  font-weight: bold;
 `
 const MainTitle = styled.p`
   color: var(--grey3, #3E3D3F);
   text-align: center;
-  font-family: Pretendard;
   font-size: 52px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  font-weight: bold;
 `
-const YearButton = styled.div`
+const YearButtonLayout = styled.div`
   position: absolute;
   top: 182px;
   display: flex;
   gap: 30px;
   margin-top: 16px;
 `
-const Button2022 = styled.button`
+const YearButton = styled.button`
   display: flex;
   padding: 8px 24px;
   gap: 6px;
@@ -77,17 +71,5 @@ const Button2022 = styled.button`
   border: none;
   color: ${(props) => (props.selected ? '#ffffff' : '#000000')};
 `;
-
-const Button2023 = styled.button`
-  display: flex;
-  padding: 8px 24px;
-  gap: 6px;
-  border-radius: 80px;
-  background: ${(props) => props.selected ? '#fff' : 'var(--navy, #6699ED)'};
-  box-shadow: 1px 2px 5px 0px rgba(184, 184, 184, 0.60);
-  border: none;
-  color: ${(props) => (props.selected ? '#000000' : '#ffffff')};
-`;
-
 
 export default Histories;

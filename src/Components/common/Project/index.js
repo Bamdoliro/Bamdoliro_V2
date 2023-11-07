@@ -49,29 +49,20 @@ const Text_content = styled.div`
 `;
 const Project_title = styled.p`
   color: #6699ed;
-  font-family: Pretendard;
   font-size: 36px;
-  font-style: normal;
   font-weight: 500;
-  line-height: normal;
 `;
 const Project_name = styled.p`
   color: var(--grey3, #3e3d3f);
-  font-family: Pretendard;
   font-size: 65px;
-  font-style: normal;
   margin-top: 8px;
   margin-bottom: 30px;
   font-weight: 700;
-  line-height: normal;
 `;
 const Project_info = styled.p`
   color: var(--grey3, #3e3d3f);
-  font-family: Pretendard;
   font-size: 28px;
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
   white-space: pre-wrap;
   width: 440px;
 `;

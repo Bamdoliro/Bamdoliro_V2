@@ -1,11 +1,10 @@
 import Content from "./Content/index";
 import Circle from "./Circle/index";
-import { styled, createGlobalStyle } from "styled-components";
+import { styled } from "styled-components";
 
 function Main() {
   return (
     <>
-      <GlobalStyle />
       <Container>
         <StyledCircle />
         <Content />
@@ -13,13 +12,6 @@ function Main() {
     </>
   );
 }
-
-const GlobalStyle = createGlobalStyle`
-  * {
-    margin: 0;
-    padding: 0;
-  }
-`;
 
 const Container = styled.div`
   display: flex;

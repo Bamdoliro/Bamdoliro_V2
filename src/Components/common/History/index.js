@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import years from "../../../datas/History/years.json"
+import years from "../../../datas/years.json"
 import checkIcon from '../../../assets/Icon-Check.svg'
 import styled from 'styled-components';
 
@@ -51,11 +51,8 @@ const BlueCircle = styled.div`
 `
 const Content = styled.p`
   color: var(--white, #FFF);
-  font-family: Pretendard;
   font-size: 22px;
-  font-style: normal;
   font-weight: 500;
-  line-height: normal;
   padding-top: 170px;
   padding-left: 120px;
   width: 500px;
@@ -90,11 +87,8 @@ const MonthButton = styled.button`
 `
 const Month = styled.p`
   color: var(--grey3, #3E3D3F);
-  font-family: Pretendard;
   font-size: 60px;
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
 `
 const CheckIcon = styled.img`
   position: absolute;

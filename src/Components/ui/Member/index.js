@@ -1,10 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as S from './style'
 
 
 const Member = () => {
-  const generations = ['1기','2기','3기']
-  const positions = ['Front-End','Back-End','Design']
+  const generations = ['1기', '2기', '3기']
+  const positions = ['Front-End', 'Back-End', 'Design']
+  const [selectedGeneration, setSelectedGeneration] = useState(null);
+  const [selectedPosition, setSelectedPostion] = useState(null)
+
+  const onGenerationClick = (index) => {
+    if (selectedGeneration === index) {
+      setSelectedGeneration(null);
+    } else {
+      setSelectedGeneration(index);
+    }
+  }
+  const onPositionClick = (index) => {
+    if (selectedPosition === index) {
+      setSelectedPostion(null);
+    } else {
+      setSelectedPostion(index);
+    }
+  }
+
   return (
     <S.Layout>
       <S.Titles>
@@ -13,22 +31,35 @@ const Member = () => {
       </S.Titles>
       <S.GenerationButtons>
         {
-          generations.map((item,index) => {
+          generations.map((item, index) => {
             return (
-              <S.Generation>{item}</S.Generation>
+              <S.Generation
+                onClick={() => onGenerationClick(index)}
+                selected={selectedGeneration === index}
+              >
+                {item}
+              </S.Generation>
             )
           })
         }
       </S.GenerationButtons>
       <S.PositionButtons>
         {
-          positions.map((item,index) => {
+          positions.map((item, index) => {
             return (
-              <S.Position>{item}</S.Position>
+              <S.Position
+                onClick={() => onPositionClick(index)}
+                selected={selectedPosition == index}
+              >
+                {item}
+              </S.Position>
             )
           })
         }
       </S.PositionButtons>
+      <S.MemberLayout>
+
+      </S.MemberLayout>
     </S.Layout>
   );
 };

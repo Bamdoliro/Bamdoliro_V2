@@ -35,7 +35,7 @@ export const Generation = styled.button`
   background: none;
   font-size: 18px;
   font-weight: 600;
-  color: var(--grey3, #3E3D3F);
+  color: ${(props) => (props.selected ? 'var(--navy, #6699ED)' : 'var(--grey3, #3E3D3F)')};
 `
 export const PositionButtons = styled.div`
   display: flex;
@@ -50,8 +50,15 @@ export const Position = styled.button`
   border-radius: 80px;
   border: none;
   box-shadow: 1px 2px 5px 0px rgba(184, 184, 184, 0.60);
-  background: #FFF;
+  background: ${(props) => (props.selected ? 'var(--navy, #6699ED)' : '#FFF')};
   font-size: 20px;
   font-weight: 600;
-  color: var(--grey3, #3E3D3F);
+  color: ${(props) => (props.selected ? '#FFF' : 'var(--grey3, #3E3D3F)')};
+`
+export const MemberLayout = styled.div`
+  margin-top: 32px;
+  width: 1048px;
+  height: 332px;
+  background-color: aliceblue;
+  gap: 20px;
 `

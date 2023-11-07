@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import History from '../../common/History';
 
 const Histories = () => {
-  const [selectedMonthIndex,setSelectedIconIndex] = useState(0)
-  const [selectedYear,setSelectedYear] = useState(0)
-  console.log(selectedYear)
-  
+  const years = [2022, 2023]
+  const [selectedMonthIndex, setSelectedMonthIndex] = useState(0)
+  const [selectedYear, setSelectedYear] = useState(0)
+
   return (
     <Layout>
       <TitleLayout>
@@ -14,11 +14,14 @@ const Histories = () => {
         <MainTitle>밤돌이로의 발자취</MainTitle>
       </TitleLayout>
       <YearButton>
-        <Button2022 onClick={() => setSelectedYear(0)} selected={selectedYear === 0}>2022</Button2022>
-        <Button2023 onClick={() => setSelectedYear(1)} selected={selectedYear === 0}>2023</Button2023>
+        {years.map((year, index) => (
+          <Button2022 key={index} onClick={() => setSelectedYear(index)} selected={selectedYear === index}>
+            {year}
+          </Button2022>
+        ))}
       </YearButton>
       <History
-        setSelectedIconIndex={setSelectedIconIndex}
+        setSelectedMonthIndex={setSelectedMonthIndex}
         selectedMonthIndex={selectedMonthIndex}
         selectedYear={selectedYear}
       />
@@ -37,7 +40,7 @@ const TitleLayout = styled.div`
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 68px;
+  top: 82px;
 `
 const SubTitle = styled.p`
   color: var(--grey3, #3E3D3F);
@@ -62,6 +65,7 @@ const YearButton = styled.div`
   top: 182px;
   display: flex;
   gap: 30px;
+  margin-top: 16px;
 `
 const Button2022 = styled.button`
   display: flex;

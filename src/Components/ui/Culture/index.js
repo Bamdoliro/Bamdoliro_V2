@@ -1,19 +1,17 @@
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
 
-const Introduce = () => {
+const Culture = () => {
   const texts = [
-    "🏃끈기있는",
-    "🔥꺼지지 않을 열정이 있는",
-    "🐯무엇이든 맞설 용기있는",
-    "📈끊임없이 성장하는",
-    "🧶엉킨 실타래를 푸는",
+    "주저없는 소통",
+    "수평적인 문화 지향",
+    "다소 과격한 성장 의지",
   ];
   const isScrollDown = useRef(false);
   const [textNumber, setTextNumber] = useState(0);
 
   const handleWheel = (event) => {
-    if (isScrollDown.current || textNumber >= 4) {
+    if (isScrollDown.current || textNumber >= 2) {
       return;
     }
     const scroll = event.deltaY;
@@ -39,7 +37,28 @@ const Introduce = () => {
             ))}
           </MoveBox>
         </Contents>
-        <Bamdoliro>밤돌이로</Bamdoliro>
+        <Font>
+          <Team>Team Culture</Team>
+          <Bamdoliro>‘밤돌이로’다움이란</Bamdoliro>
+        </Font>
+        <Image
+          src={process.env.PUBLIC_URL + "/culture.svg"}
+          alt="Image"
+          index={0}
+          textNumber={textNumber}
+        />
+        <Image
+          src={process.env.PUBLIC_URL + "/culture2.svg"}
+          alt="Image"
+          index={1}
+          textNumber={textNumber}
+        />
+        <Image
+          src={process.env.PUBLIC_URL + "/culture3.svg"}
+          alt="Image"
+          index={2}
+          textNumber={textNumber}
+        />
       </ContentLayout>
     </Layout>
   );
@@ -71,12 +90,14 @@ const ContentLayout = styled.div`
 
 const Contents = styled.div`
   transition: transform 0.5s ease;
-  height: 630px;
+  height: 350px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   position: relative;
+  top: 80px;
+  right: 390px;
 
   &:before,
   &:after {
@@ -84,7 +105,7 @@ const Contents = styled.div`
     position: absolute;
     left: 0;
     right: 0;
-    height: 255px;
+    height: 105px;
     z-index: 1;
   }
 
@@ -110,11 +131,11 @@ const Contents = styled.div`
 const Text = styled.h1`
   color: ${(props) =>
     props.index === props.textNumber
-      ? "var(--navy, #6699ED)"
+      ? "var(--grey3, #3E3D3F)"
       : "var(--grey2, #929292)"};
   text-align: center;
   font-family: Pretendard;
-  font-size: ${(props) => (props.index === props.textNumber ? "48px" : "28px")};
+  font-size: ${(props) => (props.index === props.textNumber ? "40px" : "28px")};
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -122,14 +143,32 @@ const Text = styled.h1`
   padding-right: 10px;
 `;
 
-const Bamdoliro = styled.p`
-  color: var(--grey3, #3e3d3f);
-  text-align: center;
+const Font = styled.div`
   font-family: Pretendard;
-  font-size: 48px;
   font-style: normal;
-  font-weight: 700;
   line-height: normal;
+  position: absolute;
+  left: 162px;
+  top: 170px;
+  user-select: none;
+`;
+const Bamdoliro = styled.div`
+  font-size: 40px;
+  font-weight: 700;
+`;
+const Team = styled.div`
+  color: var(--navy, #6699ed);
+  font-size: 36px;
+  font-weight: 500;
+`;
+const Image = styled.img`
+  width: 429px;
+  height: 592px;
+  position: absolute;
+  left: 850px;
+  top: 100px;
+  opacity: ${(props) => (props.index === props.textNumber ? 1 : 0)};
+  transition: opacity 0.5s ease;
 `;
 
-export default Introduce;
+export default Culture;

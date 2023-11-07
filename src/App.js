@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { createGlobalStyle,ThemeProvider } from "styled-components";
-import Header from "./Components/common/Header"
+import { createGlobalStyle, ThemeProvider } from "styled-components";
+import Header from "./Components/common/Header";
 import Main from "./Components/ui/Main";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Introduce from "./Components/ui/Introduce";
 import Projects from "./Components/ui/Projects";
+import Culture from "./Components/ui/Culture";
 import Histories from "./Components/ui/Histories";
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
       <GlobalStyle />
 
       <ReactFullpage
-        anchors={["main", "introduce","projects","history"]}
+        anchors={["main", "introduce", "culture", "projects","history"]}
         onLeave={(destination) => {
           window.location.hash = destination.anchor;
         }}
@@ -43,6 +44,9 @@ function App() {
               </div>
               <div className="section">
                 <Introduce />
+              </div>
+              <div className="section">
+                <Culture />
               </div>
               <div className="section">
                 <Projects />

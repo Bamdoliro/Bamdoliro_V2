@@ -122,19 +122,13 @@ const Text = styled.h1`
       ? "var(--grey3, #3E3D3F)"
       : "var(--grey2, #929292)"};
   text-align: center;
-  font-family: Pretendard;
   font-size: ${(props) => (props.index === props.textNumber ? "40px" : "28px")};
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
   padding-left: 10px;
   padding-right: 10px;
 `;
 
 const Font = styled.div`
-  font-family: Pretendard;
-  font-style: normal;
-  line-height: normal;
   position: absolute;
   left: 162px;
   top: 170px;

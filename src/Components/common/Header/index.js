@@ -13,7 +13,8 @@ function Header(props) {
           src={
             props.activeSection === "introduce" ||
             props.activeSection === "culture" ||
-            props.activeSection === "projects"
+            props.activeSection === "projects" ||
+            props.activeSection === "history"
               ? black_logo
               : white_logo
           }
@@ -25,7 +26,8 @@ function Header(props) {
             className={
               props.activeSection === "introduce" ||
               props.activeSection === "culture" ||
-              props.activeSection === "projects"
+              props.activeSection === "projects" ||
+              props.activeSection === "history"
                 ? "active"
                 : ""
             }
@@ -45,7 +47,8 @@ const HeaderContainer = styled.div`
   background-color: ${(props) =>
     props.activeSection === "introduce" ||
     props.activeSection === "culture" ||
-    props.activeSection === "projects"
+    props.activeSection === "projects" ||
+    props.activeSection === "history"
       ? "rgba(255, 255, 255, 0.06)"
       : "rgba(62, 61, 63, 0.30)"};
   border-bottom: 1px solid rgba(62, 61, 63, 0.3);

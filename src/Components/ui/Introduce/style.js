@@ -15,6 +15,7 @@ export const Layout = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  overflow: hidden;
 `;
 
 export const ContentLayout = styled.div`

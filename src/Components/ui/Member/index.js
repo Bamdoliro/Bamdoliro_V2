@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as S from './style'
+import axios from 'axios';
 
 
 const Member = () => {
@@ -22,6 +23,13 @@ const Member = () => {
       setSelectedPostion(index);
     }
   }
+
+  // useEffect(() => {
+  //     axios.get("https://port-0-bamdoliro-ov-jvpb2alnepf5zj.sel5.cloudtype.app/github")
+  //     .then((response)=> {
+  //       console.log(response.data)
+  //     })
+  // }, [])
 
   return (
     <S.Layout>

@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import * as S from './style'
 
-const Introduce = () => {
+const Introduce = ({onNavigateToCulture}) => {
   const texts = [
     "🏃끈기있는",
     "🔥꺼지지 않을 열정이 있는",
@@ -13,17 +13,23 @@ const Introduce = () => {
   const [textNumber, setTextNumber] = useState(0);
 
   const handleWheel = (event) => {
-    if (isScrollDown.current || textNumber >= 4) {
-      return;
-    }
     const scroll = event.deltaY;
     if (scroll > 0) {
-      console.log("scrolled");
-      setTextNumber(textNumber + 1);
-      isScrollDown.current = true;
-      setTimeout(() => {
+      if (isScrollDown.current || textNumber > 4) {
+        if (textNumber > 4) {
+          onNavigateToCulture()
+        }
+        return;
+      }
+      else {
+        console.log("scrolled");
+        setTextNumber(textNumber + 1);
+        isScrollDown.current = true;
+        setTimeout(() => {
         isScrollDown.current = false;
       }, 1500);
+      }
+      
     }
   };
 

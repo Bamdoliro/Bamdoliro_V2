@@ -5,7 +5,7 @@ export const MoveBox = styled.div`
   flex-direction: column;
   gap: 34px;
   transition: transform 0.5s ease;
-  transform: translateY(${(props) => -props.textNumber * 71}px);
+  transform: translateY(${(props) => (props.textNumber <= 4 ? `-${props.textNumber * 71}px` : '-284px')});
 `;
 
 export const Layout = styled.div`
@@ -65,15 +65,17 @@ export const Contents = styled.div`
 
 export const Text = styled.h1`
   color: ${(props) =>
-    props.index === props.textNumber
+    props.index === Math.min(props.textNumber, 4)
       ? "var(--navy, #6699ED)"
       : "var(--grey2, #929292)"};
   text-align: center;
-  font-size: ${(props) => (props.index === props.textNumber ? "48px" : "28px")};
+  font-size: ${(props) =>
+    props.index === Math.min(props.textNumber, 4) ? "48px" : "28px"};
   font-weight: bold;
   padding-left: 10px;
   padding-right: 10px;
 `;
+
 
 export const Bamdoliro = styled.p`
   color: var(--grey3, #3e3d3f);

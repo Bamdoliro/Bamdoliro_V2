@@ -1,7 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useRef,useState } from "react";
 import * as S from './style'
 
-const Introduce = ({onNavigateToCulture}) => {
+const Introduce = ({onNavigateToNextPage}) => {
   const texts = [
     "🏃끈기있는",
     "🔥꺼지지 않을 열정이 있는",
@@ -10,28 +10,26 @@ const Introduce = ({onNavigateToCulture}) => {
     "🧶엉킨 실타래를 푸는",
   ];
   const isScrollDown = useRef(false);
-  const [textNumber, setTextNumber] = useState(0);
+  const [textNumber,setTextNumber] = useState(0);
 
   const handleWheel = (event) => {
     const scroll = event.deltaY;
     if (scroll > 0) {
       if (isScrollDown.current || textNumber > 4) {
         if (textNumber > 4) {
-          onNavigateToCulture()
+          onNavigateToNextPage("introduce")
         }
-        return;
       }
       else {
         console.log("scrolled");
-        setTextNumber(textNumber + 1);
+        setTextNumber(textNumber + 1)
         isScrollDown.current = true;
         setTimeout(() => {
         isScrollDown.current = false;
-      }, 1500);
+      }, 1500)
       }
-      
     }
-  };
+  }
 
   return (
     <S.Layout onWheel={handleWheel}>

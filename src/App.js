@@ -4,15 +4,16 @@ import Header from "./Components/common/Header";
 import Main from "./Components/ui/Main";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Introduce from "./Components/ui/Introduce";
-import Projects from "./Components/ui/Projects";
 import Culture from "./Components/ui/Culture";
+import Projects from "./Components/ui/Projects";
 import Histories from "./Components/ui/Histories";
 import Member from "./Components/ui/Member";
+import { BrowserRouter, Routes } from "react-router-dom";
 
 function App() {
   const [activeSection, setActiveSection] = useState("");
-  const [isIntroduceSectionLoaded, setIsIntroduceSectionLoaded] = useState(false);
-
+  const [isIntroduceLoad, setIsIntroduceLoad] = useState(false);
+  const [textNumber, setTextNumber] = useState(0);
 
   useEffect(() => {
     const updateActiveSection = () => {
@@ -28,10 +29,13 @@ function App() {
     };
   }, []);
 
-  const navigateToCulture = () => {
-    // "culture" 섹션으로 이동하는 로직을 구현
-    console.log("Navigating to 'culture' section");
-    window.location.hash = 'culture';
+  const navigateToNextPage = (e) => {
+    if (e === "introduce") {
+      window.location.hash = "culture";
+    }
+    if (e === "culture") {
+      window.location.hash = "projects";
+    }
   };
 
   return (
@@ -42,14 +46,14 @@ function App() {
       <ReactFullpage
         anchors={["main", "introduce", "culture", "projects", "history", "Member"]}
         onLeave={(origin, destination, direction) => {
-          if (origin.index === 1 && direction === 'down') {
-            setIsIntroduceSectionLoaded(true);
-
-            return false
-          } else if (origin.index === 2 && direction === 'up') {
-            setIsIntroduceSectionLoaded(false);
+          if (origin.index === 1 && direction === "down") {
+            setIsIntroduceLoad(true);
+            return false;
+          } else if (origin.index === 2 && direction === "up") {
+            setIsIntroduceLoad(false);
+          } else if (origin.index === 2 && destination.index === 3 && textNumber <= 2) {
+            return false; // textNumber가 2 이하인 경우 "Projects" 섹션으로 이동하지 않음
           }
-
           window.location.hash = destination.anchor;
         }}
         render={() => (
@@ -58,11 +62,15 @@ function App() {
             <div className="section">
               <Main />
             </div>
-            <div className={`section${isIntroduceSectionLoaded ? ' loaded' : ''}`}>
-              <Introduce onNavigateToCulture={navigateToCulture} />
+            <div className={`section${isIntroduceLoad ? " loaded" : ""}`}>
+              <Introduce onNavigateToNextPage={navigateToNextPage} />
             </div>
             <div className="section">
-              <Culture />
+              <Culture
+                onNavigateToNextPage={navigateToNextPage}
+                textNumber={textNumber}
+                setTextNumber={setTextNumber}
+              />
             </div>
             <div className="section">
               <Projects />
@@ -83,7 +91,6 @@ function App() {
     </ThemeProvider>
   );
 }
-
 
 const GlobalStyle = createGlobalStyle`
   * {

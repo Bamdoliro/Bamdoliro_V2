@@ -17,7 +17,9 @@ const Wind = () => {
 };
 
 const Text = styled.div`
-  font-size: 20px;
+  position: relative;
+  top: 35px;
+  font-size: 23px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -25,9 +27,12 @@ const Text = styled.div`
 `;
 
 const Number = styled.div`
+  position: relative;
+  top: 25px;
+  right: 95px;
   color: var(--grey2, #929292);
   font-family: Pretendard;
-  font-size: 24px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -36,9 +41,9 @@ const Number = styled.div`
 
 const Textbox = styled.div`
   position: relative;
-  top: 150px;
+  top: 250px;
   left: 100px;
-  width: 347px;
+  width: 325px;
   height: 120px;
   border-radius: 24px;
   background-color: rgba(255, 255, 255, 0.24);
@@ -50,7 +55,7 @@ const Font = styled.div`
   font-family: Pretendard;
 `;
 const Title = styled.div`
-  font-size: 45px;
+  font-size: 35px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;

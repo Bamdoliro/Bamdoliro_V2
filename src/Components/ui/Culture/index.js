@@ -110,7 +110,7 @@ const Contents = styled.div`
   justify-content: flex-end;
   position: relative;
   top: 80px;
-  right: 390px;
+  right: 434px;
 
   &:before,
   &:after {
@@ -152,6 +152,7 @@ const Text = styled.h1`
   font-weight: 700;
   padding-left: 10px;
   padding-right: 10px;
+  user-select: none;
 `;
 
 const Font = styled.div`

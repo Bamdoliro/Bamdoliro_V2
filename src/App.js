@@ -8,26 +8,12 @@ import Culture from "./Components/ui/Culture";
 import Projects from "./Components/ui/Projects";
 import Histories from "./Components/ui/Histories";
 import Member from "./Components/ui/Member";
-import { BrowserRouter, Routes } from "react-router-dom";
+import Hash from "./Components/common/Hash";
 
 function App() {
   const [activeSection, setActiveSection] = useState("");
   const [isIntroduceLoad, setIsIntroduceLoad] = useState(false);
   const [textNumber, setTextNumber] = useState(0);
-
-  useEffect(() => {
-    const updateActiveSection = () => {
-      const hash = window.location.hash.replace("#", "");
-      setActiveSection(hash);
-    };
-
-    window.addEventListener("hashchange", updateActiveSection);
-    updateActiveSection();
-
-    return () => {
-      window.removeEventListener("hashchange", updateActiveSection);
-    };
-  }, []);
 
   const navigateToNextPage = (e) => {
     if (e === "introduce") {
@@ -42,7 +28,7 @@ function App() {
     <ThemeProvider theme={{ activeSection }}>
       <Header activeSection={activeSection} />
       <GlobalStyle />
-
+      <Hash setActiveSection={setActiveSection}/>
       <ReactFullpage
         anchors={["main", "introduce", "culture", "projects", "history", "Member"]}
         onLeave={(origin, destination, direction) => {
@@ -52,7 +38,7 @@ function App() {
           } else if (origin.index === 2 && direction === "up") {
             setIsIntroduceLoad(false);
           } else if (origin.index === 2 && destination.index === 3 && textNumber <= 2) {
-            return false; // textNumber가 2 이하인 경우 "Projects" 섹션으로 이동하지 않음
+            return false;
           }
           window.location.hash = destination.anchor;
         }}

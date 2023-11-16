@@ -57,8 +57,60 @@ export const Position = styled.button`
 `
 export const MemberLayout = styled.div`
   margin-top: 32px;
-  width: 1048px;
-  height: 332px;
-  background-color: aliceblue;
+  width: 1096px;
+  height: 328px;
   gap: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+export const CoverLink = styled.a`
+  text-decoration: none;
+  height: 100%;
+`
+export const Members = styled.div`
+  width: 240px;
+  height: 100%;
+  border-radius: 8px;
+  background: #FFF;
+  box-shadow: 0px 2px 10px 1px rgba(149, 149, 149, 0.25);
+  position: relative;
+`
+export const MemberImg = styled.img`
+  width: 100%;
+  height: 72%;
+  background-color: aliceblue;
+  border-radius: 8px 8px 0 0;
+`
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+  margin-top: 12px;
+  margin-left: 12px;
+`
+
+export const Name = styled.h3`
+  width: 170px;
+  color: var(--grey3, #3E3D3F);
+  font-size: 22px;
+  font-weight: 600;
+`
+export const PosAndGen = styled.p`
+  color: var(--grey3, #3E3D3F);
+  font-size: 16px;
+  font-weight: 600;
+`
+export const ArrowIcon = styled.img`
+  width: 31px;
+  height: 47px;
+  cursor: pointer;
+`
+export const GithubImg = styled.img`
+  position: absolute;
+  top: 77%;
+  right: 6%;
+  width: 28px;
+  height: 28px;
 `

@@ -23,13 +23,18 @@ const Member = () => {
       setSelectedPostion(index);
     }
   }
-
-  // useEffect(() => {
-  //     axios.get("https://port-0-bamdoliro-ov-jvpb2alnepf5zj.sel5.cloudtype.app/github")
-  //     .then((response)=> {
-  //       console.log(response.data)
-  //     })
-  // }, [])
+  
+  useEffect(() => {
+    const getMemberData = async() => {
+      try{
+        const res = await axios.get("https://port-0-bamdoliro-ov-jvpb2alnepf5zj.sel5.cloudtype.app/github");
+        console.log(res.data)
+      } catch (err){
+        console.log(err)
+      }
+    }
+    getMemberData()
+  }, [])
 
   return (
     <S.Layout>

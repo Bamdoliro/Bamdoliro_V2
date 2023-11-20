@@ -66,7 +66,7 @@ const Number = styled.div`
 
 const Textbox = styled.div`
   position: relative;
-  top: 250px;
+  top: 220px;
   left: 100px;
   width: 220px;
   height: 120px;

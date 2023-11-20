@@ -1,19 +1,44 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import styled from "styled-components";
 import bsm from "../../../assets/bsm.svg";
 
 const Wind = () => {
+  const [wind, setWind] = useState([]);
+  useEffect(() => {
+    const getWindData = async () => {
+      try {
+        const res = await axios.get(
+          "https://port-0-bamdoliro-ov-jvpb2alnepf5zj.sel5.cloudtype.app/randomList"
+        );
+        setWind(res.data);
+        console.log(res.data.wind);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getWindData();
+  }, []);
+
   return (
     <Container>
       <Font>
         <Title>우리의 바람이 당신에게 닿기를</Title>
         <Textbox>
-          <Number>N번째 바람</Number>
-          <Text>잊지마 내가 두고 온 방과후</Text>
+          {wind.map((a) => (
+            <div>
+              <Number>{a.id}번째 바람</Number>
+              <Text>{a.wind}</Text>
+            </div>
+          ))}
         </Textbox>
       </Font>
     </Container>
   );
+};
+
+Wind.defaultProps = {
+  Wind: [],
 };
 
 const Text = styled.div`

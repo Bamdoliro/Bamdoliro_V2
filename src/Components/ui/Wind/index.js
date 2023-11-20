@@ -85,7 +85,7 @@ const Title = styled.div`
   font-weight: 700;
   line-height: normal;
   position: relative;
-  top: 120px;
+  top: 110px;
   user-select: none;
 `;
 

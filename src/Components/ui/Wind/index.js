@@ -12,7 +12,7 @@ const Wind = () => {
           "https://port-0-bamdoliro-ov-jvpb2alnepf5zj.sel5.cloudtype.app/randomList"
         );
         setWind(res.data);
-        console.log(res.data.wind);
+        console.log(res.data);
       } catch (err) {
         console.log(err);
       }
@@ -54,10 +54,10 @@ const Text = styled.div`
 const Number = styled.div`
   position: relative;
   top: 25px;
-  right: 95px;
+  right: 35px;
   color: var(--grey2, #929292);
   font-family: Pretendard;
-  font-size: 18px;
+  font-size: 21px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -68,7 +68,7 @@ const Textbox = styled.div`
   position: relative;
   top: 250px;
   left: 100px;
-  width: 325px;
+  width: 220px;
   height: 120px;
   border-radius: 24px;
   background-color: rgba(255, 255, 255, 0.24);

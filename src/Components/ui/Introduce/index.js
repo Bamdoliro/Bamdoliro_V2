@@ -36,7 +36,7 @@ const Introduce = ({onNavigateToNextPage}) => {
       <S.ContentLayout>
         <S.Contents>
           <S.MoveBox textNumber={textNumber}>
-            {texts.map((text, index) => (
+            {texts?.map((text, index) => (
               <S.Text key={index} index={index} textNumber={textNumber}>
                 {text}
               </S.Text>

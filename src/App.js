@@ -30,7 +30,7 @@ function App() {
       <GlobalStyle />
       <Hash setActiveSection={setActiveSection}/>
       <ReactFullpage
-        anchors={["main", "introduce", "culture", "projects", "history", "Member"]}
+        anchors={["main", "introduce", "culture", "projects", "history", "member"]}
         onLeave={(origin, destination, direction) => {
           if (origin.index === 1 && direction === "down") {
             setIsIntroduceLoad(true);
@@ -71,7 +71,7 @@ function App() {
         )}
         options={{
           licenseKey: null,
-          anchors: ["main", "introduce", "culture", "projects", "history", "Member"],
+          anchors: ["main", "introduce", "culture", "projects", "history", "member"],
         }}
       />
     </ThemeProvider>

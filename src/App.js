@@ -4,62 +4,74 @@ import Header from "./Components/common/Header";
 import Main from "./Components/ui/Main";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Introduce from "./Components/ui/Introduce";
-import Projects from "./Components/ui/Projects";
 import Culture from "./Components/ui/Culture";
+import Projects from "./Components/ui/Projects";
 import Histories from "./Components/ui/Histories";
 import Member from "./Components/ui/Member";
+import Hash from "./Components/common/Hash";
 
 function App() {
   const [activeSection, setActiveSection] = useState("");
+  const [isIntroduceLoad, setIsIntroduceLoad] = useState(false);
+  const [textNumber, setTextNumber] = useState(0);
 
-  useEffect(() => {
-    const updateActiveSection = () => {
-      const hash = window.location.hash.replace("#", "");
-      setActiveSection(hash);
-    };
-
-    window.addEventListener("hashchange", updateActiveSection);
-    updateActiveSection();
-
-    return () => {
-      window.removeEventListener("hashchange", updateActiveSection);
-    };
-  }, []);
+  const navigateToNextPage = (e) => {
+    if (e === "introduce") {
+      window.location.hash = "culture";
+    }
+    if (e === "culture") {
+      window.location.hash = "projects";
+    }
+  };
 
   return (
     <ThemeProvider theme={{ activeSection }}>
       <Header activeSection={activeSection} />
       <GlobalStyle />
-
+      <Hash setActiveSection={setActiveSection}/>
       <ReactFullpage
-        anchors={["main", "introduce", "culture", "projects","history","Member"]}
-        onLeave={(destination) => {
+        anchors={["main", "introduce", "culture", "projects", "history", "member"]}
+        onLeave={(origin, destination, direction) => {
+          if (origin.index === 1 && direction === "down") {
+            setIsIntroduceLoad(true);
+            return false;
+          } else if (origin.index === 2 && direction === "up") {
+            setIsIntroduceLoad(false);
+          } else if (origin.index === 2 && destination.index === 3 && textNumber <= 2) {
+            return false;
+          }
           window.location.hash = destination.anchor;
         }}
-        render={() => {
-          return (
-            <>
-              <GlobalStyle />
-              <div className="section">
-                <Main />
-              </div>
-              <div className="section">
-                <Introduce />
-              </div>
-              <div className="section">
-                <Culture />
-              </div>
-              <div className="section">
-                <Projects />
-              </div>
-              <div className="section">
-                <Histories />
-              </div>
-              <div className="section">
-                <Member />
-              </div>
-            </>
-          );
+        render={() => (
+          <>
+            <GlobalStyle />
+            <div className="section">
+              <Main />
+            </div>
+            <div className={`section${isIntroduceLoad ? " loaded" : ""}`}>
+              <Introduce onNavigateToNextPage={navigateToNextPage} />
+            </div>
+            <div className="section">
+              <Culture
+                onNavigateToNextPage={navigateToNextPage}
+                textNumber={textNumber}
+                setTextNumber={setTextNumber}
+              />
+            </div>
+            <div className="section">
+              <Projects />
+            </div>
+            <div className="section">
+              <Histories />
+            </div>
+            <div className="section">
+              <Member />
+            </div>
+          </>
+        )}
+        options={{
+          licenseKey: null,
+          anchors: ["main", "introduce", "culture", "projects", "history", "member"],
         }}
       />
     </ThemeProvider>

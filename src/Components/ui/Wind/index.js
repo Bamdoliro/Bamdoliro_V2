@@ -11,8 +11,9 @@ const Wind = () => {
         const res = await axios.get(
           "https://port-0-bamdoliro-ov-jvpb2alnepf5zj.sel5.cloudtype.app/randomList"
         );
-        setWind(res.data);
-        console.log(res.data);
+        const sort = res.data.sort((a, b) => a.id - b.id);
+        setWind(sort);
+        console.log(sort);
       } catch (err) {
         console.log(err);
       }
@@ -24,14 +25,16 @@ const Wind = () => {
     <Container>
       <Font>
         <Title>우리의 바람이 당신에게 닿기를</Title>
-        <Textbox>
-          {wind.map((a) => (
-            <div>
-              <Number>{a.id}번째 바람</Number>
-              <Text>{a.wind}</Text>
-            </div>
-          ))}
-        </Textbox>
+        {wind.map((a) => (
+          <Box>
+            <Textbox>
+              <Square>
+                <Number>{a.id}번째 바람</Number>
+                <Text>{a.wind}</Text>
+              </Square>
+            </Textbox>
+          </Box>
+        ))}
       </Font>
     </Container>
   );
@@ -41,6 +44,14 @@ Wind.defaultProps = {
   Wind: [],
 };
 
+const Square = styled.div``;
+
+const Box = styled.div`
+  display: inline-block;
+  vertical-align: middle;
+  padding: 16px;
+`;
+
 const Text = styled.div`
   position: relative;
   top: 35px;
@@ -49,26 +60,27 @@ const Text = styled.div`
   font-weight: 700;
   line-height: normal;
   user-select: none;
+  text-align: left;
 `;
 
 const Number = styled.div`
   position: relative;
   top: 25px;
-  right: 35px;
   color: var(--grey2, #929292);
   font-family: Pretendard;
-  font-size: 21px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
   user-select: none;
+  text-align: left;
 `;
 
 const Textbox = styled.div`
   position: relative;
   top: 220px;
   left: 100px;
-  width: 220px;
+  width: 200px;
   height: 120px;
   border-radius: 24px;
   background-color: rgba(255, 255, 255, 0.24);

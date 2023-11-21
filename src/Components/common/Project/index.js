@@ -1,70 +1,21 @@
 import React from "react";
-import styled from "styled-components";
+import * as S from './style'
 
 const Project = ({ title, info, symbol }) => {
   return (
-    <Container>
-      <Content>
-        <Text_content>
-          <Project_title>Project</Project_title>
-          <Project_name>{title}</Project_name>
-          <Project_info>{info}</Project_info>
-        </Text_content>
-        <Icon_layout>
-          <Icon src={require(`../../../assets/${symbol}`)} />
-        </Icon_layout>
-      </Content>
-    </Container>
+    <S.Container>
+      <S.Content>
+        <S.Text_content>
+          <S.Project_title>Project</S.Project_title>
+          <S.Project_name>{title}</S.Project_name>
+          <S.Project_info>{info}</S.Project_info>
+        </S.Text_content>
+        <S.Icon_layout>
+          <S.Icon src={require(`../../../assets/${symbol}`)} />
+        </S.Icon_layout>
+      </S.Content>
+    </S.Container>
   );
 };
-
-const Container = styled.div`
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-const Content = styled.div`
-  display: flex;
-  gap: 330px;
-`;
-const Icon_layout = styled.div`
-  display: flex;
-  width: 150px;
-  height: 150px;
-  padding: 90px 84px 91px 84px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 360px;
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 1px 3px 5px 2px rgba(128, 124, 124, 0.2);
-`;
-const Icon = styled.img`
-  width: 200px;
-  height: 187px;
-`;
-const Text_content = styled.div`
-  margin-top: 64px;
-`;
-const Project_title = styled.p`
-  color: #6699ed;
-  font-size: 36px;
-  font-weight: 500;
-`;
-const Project_name = styled.p`
-  color: var(--grey3, #3e3d3f);
-  font-size: 65px;
-  margin-top: 8px;
-  margin-bottom: 30px;
-  font-weight: 700;
-`;
-const Project_info = styled.p`
-  color: var(--grey3, #3e3d3f);
-  font-size: 28px;
-  font-weight: 700;
-  white-space: pre-wrap;
-  width: 440px;
-`;
 
 export default Project;

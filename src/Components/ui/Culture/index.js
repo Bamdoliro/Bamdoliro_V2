@@ -4,29 +4,36 @@ import conversation from "../../../assets/culture.svg";
 import culture from "../../../assets/culture2.svg";
 import grow from "../../../assets/culture3.svg";
 
-const Culture = () => {
+const Culture = ({onNavigateToNextPage,textNumber,setTextNumber}) => {
   const texts = [
     "주저없는 소통",
     "수평적인 문화 지향",
     "다소 과격한 성장 의지",
   ];
+  const imgs = [
+    conversation,
+    culture,
+    grow
+  ]
   const isScrollDown = useRef(false);
-  const [textNumber, setTextNumber] = useState(0);
 
   const handleWheel = (event) => {
-    if (isScrollDown.current || textNumber >= 2) {
-      return;
-    }
     const scroll = event.deltaY;
     if (scroll > 0) {
-      console.log("scrolled");
-      setTextNumber(textNumber + 1);
-      isScrollDown.current = true;
-      setTimeout(() => {
-        isScrollDown.current = false;
-      }, 1500);
+      if (!isScrollDown.current && textNumber <= 2) {
+        console.log("scrolled");
+        setTextNumber(textNumber + 1);
+        isScrollDown.current = true;
+        setTimeout(() => {
+          isScrollDown.current = false;
+        }, 1500);
+      } else if (textNumber > 2) {
+        onNavigateToNextPage("culture");
+      }
     }
   };
+  
+  
 
   return (
     <Layout onWheel={handleWheel}>
@@ -44,14 +51,27 @@ const Culture = () => {
           <Team>Team Culture</Team>
           <Bamdoliro>‘밤돌이로’다움이란</Bamdoliro>
         </Font>
-        <Image
-          src={conversation}
-          alt="Image"
-          index={0}
-          textNumber={textNumber}
-        />
-        <Image src={culture} alt="Image" index={1} textNumber={textNumber} />
-        <Image src={grow} alt="Image" index={2} textNumber={textNumber} />
+        {
+          textNumber <= 2 ? (
+            imgs.map((item, index) => (
+              <Image
+                src={item}
+                alt="Image"
+                key={index}
+                index={index}
+                textNumber={textNumber}
+              />
+            ))
+          ) : (
+            <Image
+              src={imgs[2]}
+              alt="Image"
+              index={2}
+              textNumber={textNumber}
+              style={{ opacity: 1 }}
+            />
+          )
+        }
       </ContentLayout>
     </Layout>
   );
@@ -62,7 +82,7 @@ const MoveBox = styled.div`
   flex-direction: column;
   gap: 34px;
   transition: transform 0.5s ease;
-  transform: translateY(${(props) => -props.textNumber * 71}px);
+  transform: translateY(${(props) => (props.textNumber <= 2 ? `-${props.textNumber * 71}px` : '-142px')});
 `;
 
 const Layout = styled.div`
@@ -107,7 +127,7 @@ const Contents = styled.div`
     background: linear-gradient(
       to top,
       transparent,
-      rgba(255, 255, 255, 1) 40%
+      rgba(255, 255, 255, 1) 50%
     );
   }
 
@@ -123,11 +143,12 @@ const Contents = styled.div`
 
 const Text = styled.h1`
   color: ${(props) =>
-    props.index === props.textNumber
+    props.index === Math.min(props.textNumber, 2)
       ? "var(--grey3, #3E3D3F)"
       : "var(--grey2, #929292)"};
   text-align: center;
-  font-size: ${(props) => (props.index === props.textNumber ? "40px" : "28px")};
+  font-size: ${(props) =>
+    props.index === Math.min(props.textNumber, 2) ? "48px" : "28px"};
   font-weight: 700;
   padding-left: 10px;
   padding-right: 10px;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import Header from "./Components/common/Header";
 import Main from "./Components/ui/Main";

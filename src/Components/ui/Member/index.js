@@ -31,7 +31,7 @@ const Member = () => {
   useEffect(() => {
     const getMemberData = async() => {
       try{
-        const res = await axios.get("https://port-0-bamdoliro-ov-jvpb2alnepf5zj.sel5.cloudtype.app/github")
+        const res = await axios.get("https://port-0-bamdoliro-ov-jvpb2alnepf5zj.sel5.cloudtype.app/position/list")
         setMember(res.data);
         console.log(res.data)
       } catch (err){
@@ -67,7 +67,7 @@ const Member = () => {
             return (
               <S.Position
                 onClick={() => onPositionClick(index)}
-                selected={selectedPosition == index}
+                selected={selectedPosition === index}
               >
                 {item}
               </S.Position>
@@ -79,14 +79,14 @@ const Member = () => {
         <S.ArrowIcon src={RightArrow} onClick={() => setPage(page > 0 ? page - 1 : 0)} />
         {
           member?.slice(page * 4, page * 4 + 4).map((item, index) => (
-            <S.CoverLink href={`https://github.com/${item.login}`} target='_blank'>
+            <S.CoverLink href={`https://github.com/${item.githubId}`} target='_blank'>
               <S.Members key={index} >
-                <S.MemberImg src={item.avatar_url} />
+                <S.MemberImg src={item.profile_url} />
                 <S.Content>
                   <S.Name>
-                    {item.name ? item.name : item.login}
+                    {item.name ? item.name : item.githubId}
                   </S.Name>
-                  <S.PosAndGen>position | 기수</S.PosAndGen>
+                  <S.PosAndGen>{item.position} | {item.generation}기</S.PosAndGen>
                 </S.Content>
                 <S.GithubImg src={Github} />
               </S.Members>

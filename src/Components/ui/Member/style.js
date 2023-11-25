@@ -56,12 +56,12 @@ export const Position = styled.button`
   color: ${(props) => (props.selected ? '#FFF' : 'var(--grey3, #3E3D3F)')};
 `
 export const MemberLayout = styled.div`
+  position: relative;
   margin-top: 32px;
   width: 1096px;
   height: 328px;
-  gap: 20px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 `
 export const CoverLink = styled.a`
@@ -103,6 +103,13 @@ export const PosAndGen = styled.p`
   font-weight: 600;
 `
 export const ArrowIcon = styled.img`
+  position: absolute;
+  &:first-child {
+    left: 0;
+  }
+  &:last-child {
+    right: 0;
+  }
   width: 31px;
   height: 47px;
   cursor: pointer;
@@ -113,4 +120,12 @@ export const GithubImg = styled.img`
   right: 6%;
   width: 28px;
   height: 28px;
+`
+export const MembersBox = styled.div`
+  display: flex;
+  gap: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 38px;
 `

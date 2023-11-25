@@ -11,7 +11,7 @@ const Member = () => {
   const [member, setMember] = useState();
   const [selectedGeneration, setSelectedGeneration] = useState(null);
   const [selectedPosition, setSelectedPostion] = useState(null)
-  const [page,setPage] = useState(0)
+  const [page, setPage] = useState(0)
 
   const onGenerationClick = (index) => {
     if (selectedGeneration === index) {
@@ -27,14 +27,14 @@ const Member = () => {
       setSelectedPostion(index);
     }
   }
-  
+
   useEffect(() => {
-    const getMemberData = async() => {
-      try{
+    const getMemberData = async () => {
+      try {
         const res = await axios.get("https://port-0-bamdoliro-ov-jvpb2alnepf5zj.sel5.cloudtype.app/position/list")
         setMember(res.data);
         console.log(res.data)
-      } catch (err){
+      } catch (err) {
         console.log(err)
       }
     }
@@ -77,23 +77,25 @@ const Member = () => {
       </S.PositionButtons>
       <S.MemberLayout>
         <S.ArrowIcon src={RightArrow} onClick={() => setPage(page > 0 ? page - 1 : 0)} />
-        {
-          member?.slice(page * 4, page * 4 + 4).map((item, index) => (
-            <S.CoverLink href={`https://github.com/${item.githubId}`} target='_blank'>
-              <S.Members key={index} >
-                <S.MemberImg src={item.profile_url} />
-                <S.Content>
-                  <S.Name>
-                    {item.name ? item.name : item.githubId}
-                  </S.Name>
-                  <S.PosAndGen>{item.position} | {item.generation}기</S.PosAndGen>
-                </S.Content>
-                <S.GithubImg src={Github} />
-              </S.Members>
-            </S.CoverLink>
-          ))
-        }
-        <S.ArrowIcon src={RightArrow} style={{transform: 'scaleX(-1)'}} onClick={() => setPage(page < 3 ? page + 1 : 3)} />
+        <S.MembersBox>
+          {
+            member?.slice(page * 5, page * 5 + 4).map((item, index) => (
+              <S.CoverLink href={`https://github.com/${item.githubId}`} target='_blank'>
+                <S.Members key={index} >
+                  <S.MemberImg src={item.profile_url} />
+                  <S.Content>
+                    <S.Name>
+                      {item.name ? item.name : item.githubId}
+                    </S.Name>
+                    <S.PosAndGen>{item.position} | {item.generation}기</S.PosAndGen>
+                  </S.Content>
+                  <S.GithubImg src={Github} />
+                </S.Members>
+              </S.CoverLink>
+            ))
+          }
+        </S.MembersBox>
+        <S.ArrowIcon src={RightArrow} style={{ transform: 'scaleX(-1)' }} onClick={() => setPage(page < 3 ? page + 1 : 3)} />
       </S.MemberLayout>
     </S.Layout>
   );

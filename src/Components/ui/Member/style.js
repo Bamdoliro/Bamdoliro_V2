@@ -128,4 +128,5 @@ export const MembersBox = styled.div`
   justify-content: flex-start;
   align-items: center;
   margin-left: 38px;
+  height: 100%;
 `

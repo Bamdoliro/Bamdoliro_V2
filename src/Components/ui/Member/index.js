@@ -7,26 +7,25 @@ import Github from '../../../assets/github.svg'
 
 const Member = () => {
   const generations = ['1기', '2기', '3기']
-  const positions = ['Front-End', 'Back-End', 'Design']
-  const [member, setMember] = useState();
+  const positions = ['Frontend', 'Backend', 'Designer']
+  const [member, setMember] = useState([]);
+  const [filteredMember, setFilteredMember] = useState([]);
   const [selectedGeneration, setSelectedGeneration] = useState(null);
-  const [selectedPosition, setSelectedPostion] = useState(null)
+  const [selectedPosition, setSelectedPosition] = useState([])
   const [page, setPage] = useState(0)
+
+  console.log(selectedPosition)
 
   const onGenerationClick = (index) => {
     if (selectedGeneration === index) {
-      setSelectedGeneration(null);
+      setSelectedGeneration(null)
     } else {
-      setSelectedGeneration(index);
+      setSelectedGeneration(index)
     }
   }
   const onPositionClick = (index) => {
-    if (selectedPosition === index) {
-      setSelectedPostion(null);
-    } else {
-      setSelectedPostion(index);
-    }
-  }
+    
+  };
 
   useEffect(() => {
     const getMemberData = async () => {
@@ -40,6 +39,13 @@ const Member = () => {
     }
     getMemberData()
   }, [])
+
+  useEffect(() => {
+    if (member){
+      setFilteredMember(member.filter((item) => selectedPosition.includes(item.position)))
+      setPage(0)
+    }
+  }, [selectedPosition])
 
   return (
     <S.Layout>
@@ -66,8 +72,16 @@ const Member = () => {
           positions.map((item, index) => {
             return (
               <S.Position
-                onClick={() => onPositionClick(index)}
-                selected={selectedPosition === index}
+                onClick={() => {
+                  let newPosition;
+                  if (selectedPosition.includes(item)){
+                    newPosition = selectedPosition.filter((activePos) => item !== activePos)
+                  } else {
+                    newPosition = [...selectedPosition, item]
+                  }
+                  setSelectedPosition(newPosition)}
+                }
+                selected={selectedPosition.includes(index)}
               >
                 {item}
               </S.Position>
@@ -79,23 +93,26 @@ const Member = () => {
         <S.ArrowIcon src={RightArrow} onClick={() => setPage(page > 0 ? page - 1 : 0)} />
         <S.MembersBox>
           {
-            member?.slice(page * 5, page * 5 + 4).map((item, index) => (
-              <S.CoverLink href={`https://github.com/${item.githubId}`} target='_blank'>
-                <S.Members key={index} >
-                  <S.MemberImg src={item.profile_url} />
-                  <S.Content>
-                    <S.Name>
-                      {item.name ? item.name : item.githubId}
-                    </S.Name>
-                    <S.PosAndGen>{item.position} | {item.generation}기</S.PosAndGen>
-                  </S.Content>
-                  <S.GithubImg src={Github} />
-                </S.Members>
-              </S.CoverLink>
-            ))
+            filteredMember?.slice(page * 4, page * 4 + 4).map((item, index) => {
+                return (
+                  <S.CoverLink href={`https://github.com/${item.githubId}`} target='_blank' key={index}>
+                    <S.Members>
+                      <S.MemberImg src={item.profile_url} />
+                      <S.Content>
+                        <S.Name>
+                          {item.name ? item.name : item.githubId}
+                        </S.Name>
+                        <S.PosAndGen>{item.position} | {item.generation}기</S.PosAndGen>
+                      </S.Content>
+                      <S.GithubImg src={Github} />
+                    </S.Members>
+                  </S.CoverLink>
+                )
+            })
           }
         </S.MembersBox>
-        <S.ArrowIcon src={RightArrow} style={{ transform: 'scaleX(-1)' }} onClick={() => setPage(page < 3 ? page + 1 : 3)} />
+
+        <S.ArrowIcon src={RightArrow} style={{ transform: 'scaleX(-1)' }} onClick={() => setPage(page < 4 ? page + 1 : 4)} />
       </S.MemberLayout>
     </S.Layout>
   );

@@ -23,9 +23,6 @@ const Member = () => {
       setSelectedGeneration(index)
     }
   }
-  const onPositionClick = (index) => {
-    
-  };
 
   useEffect(() => {
     const getMemberData = async () => {
@@ -33,6 +30,7 @@ const Member = () => {
         const res = await axios.get("https://port-0-bamdoliro-ov-jvpb2alnepf5zj.sel5.cloudtype.app/position/list")
         setMember(res.data);
         console.log(res.data)
+        setFilteredMember(res.data)
       } catch (err) {
         console.log(err)
       }
@@ -41,12 +39,14 @@ const Member = () => {
   }, [])
 
   useEffect(() => {
-    if (member){
+    if (member) {
       setFilteredMember(member.filter((item) => selectedPosition.includes(item.position)))
       setPage(0)
     }
+    if (selectedPosition.length === 0) {
+      setFilteredMember(member)
+    }
   }, [selectedPosition])
-
   return (
     <S.Layout>
       <S.Titles>
@@ -74,14 +74,15 @@ const Member = () => {
               <S.Position
                 onClick={() => {
                   let newPosition;
-                  if (selectedPosition.includes(item)){
+                  if (selectedPosition.includes(item)) {
                     newPosition = selectedPosition.filter((activePos) => item !== activePos)
                   } else {
                     newPosition = [...selectedPosition, item]
                   }
-                  setSelectedPosition(newPosition)}
+                  setSelectedPosition(newPosition)
                 }
-                selected={selectedPosition.includes(index)}
+                }
+                selected={selectedPosition.includes(item)}
               >
                 {item}
               </S.Position>
@@ -94,20 +95,20 @@ const Member = () => {
         <S.MembersBox>
           {
             filteredMember?.slice(page * 4, page * 4 + 4).map((item, index) => {
-                return (
-                  <S.CoverLink href={`https://github.com/${item.githubId}`} target='_blank' key={index}>
-                    <S.Members>
-                      <S.MemberImg src={item.profile_url} />
-                      <S.Content>
-                        <S.Name>
-                          {item.name ? item.name : item.githubId}
-                        </S.Name>
-                        <S.PosAndGen>{item.position} | {item.generation}기</S.PosAndGen>
-                      </S.Content>
-                      <S.GithubImg src={Github} />
-                    </S.Members>
-                  </S.CoverLink>
-                )
+              return (
+                <S.CoverLink href={`https://github.com/${item.githubId}`} target='_blank' key={index}>
+                  <S.Members>
+                    <S.MemberImg src={item.profile_url} />
+                    <S.Content>
+                      <S.Name>
+                        {item.name ? item.name : item.githubId}
+                      </S.Name>
+                      <S.PosAndGen>{item.position} | {item.generation}기</S.PosAndGen>
+                    </S.Content>
+                    <S.GithubImg src={Github} />
+                  </S.Members>
+                </S.CoverLink>
+              )
             })
           }
         </S.MembersBox>

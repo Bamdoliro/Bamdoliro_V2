@@ -8,6 +8,7 @@ import Culture from "./Components/ui/Culture";
 import Projects from "./Components/ui/Projects";
 import Histories from "./Components/ui/Histories";
 import Member from "./Components/ui/Member";
+import Wind from "./Components/ui/Wind";
 import Hash from "./Components/common/Hash";
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
           "projects",
           "history",
           "member",
+          "wind",
         ]}
         onLeave={(origin, destination, direction) => {
           if (origin.index === 1 && direction === "down") {
@@ -78,6 +80,9 @@ function App() {
             <div className="section">
               <Member />
             </div>
+            <div className="section">
+              <Wind />
+            </div>
           </>
         )}
         options={{
@@ -89,6 +94,7 @@ function App() {
             "projects",
             "history",
             "member",
+            "Wind",
           ],
         }}
       />

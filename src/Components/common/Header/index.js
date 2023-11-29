@@ -14,7 +14,8 @@ function Header(props) {
             props.activeSection === "introduce" ||
             props.activeSection === "culture" ||
             props.activeSection === "projects" ||
-            props.activeSection === "history"
+            props.activeSection === "history" ||
+            props.activeSection === "member"
               ? black_logo
               : white_logo
           }
@@ -27,7 +28,8 @@ function Header(props) {
               props.activeSection === "introduce" ||
               props.activeSection === "culture" ||
               props.activeSection === "projects" ||
-              props.activeSection === "history"
+              props.activeSection === "history" ||
+              props.activeSection === "member"
                 ? "active"
                 : ""
             }
@@ -48,7 +50,8 @@ const HeaderContainer = styled.div`
     props.activeSection === "introduce" ||
     props.activeSection === "culture" ||
     props.activeSection === "projects" ||
-    props.activeSection === "history"
+    props.activeSection === "history" ||
+    props.activeSection === "member"
       ? "rgba(255, 255, 255, 0.06)"
       : "rgba(62, 61, 63, 0.30)"};
   border-bottom: 1px solid rgba(62, 61, 63, 0.3);

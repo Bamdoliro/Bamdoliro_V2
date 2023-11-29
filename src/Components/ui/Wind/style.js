@@ -1,9 +1,19 @@
-import styled from "styled-components";
+import { styled, keyframes } from "styled-components";
 import bsm from "../../../assets/bsm.svg";
+
+const flowing = keyframes`
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+`;
 
 export const Div = styled.div`
   width: 3000px;
   height: 1800px;
+  animation: ${flowing} 10s linear infinite;
 `;
 
 export const Box = styled.div`

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import * as S from "./style";
+import Marquee from "react-fast-marquee";
 
 const Wind = () => {
   const [wind, setWind] = useState([]);
@@ -24,18 +25,20 @@ const Wind = () => {
     <S.Container>
       <S.Font>
         <S.Title>우리의 바람이 당신에게 닿기를</S.Title>
-        <S.Div>
-          {wind.map((a) => (
-            <S.Box>
-              <S.Textbox>
-                <S.Square>
-                  <S.Number>{a.id}번째 바람</S.Number>
-                  <S.Text>{a.wind}</S.Text>
-                </S.Square>
-              </S.Textbox>
-            </S.Box>
-          ))}
-        </S.Div>
+        <Marquee>
+          <S.Rolling>
+            {wind.map((a) => (
+              <S.Box>
+                <S.Textbox>
+                  <S.Square>
+                    <S.Number>{a.id}번째 바람</S.Number>
+                    <S.Text>{a.wind}</S.Text>
+                  </S.Square>
+                </S.Textbox>
+              </S.Box>
+            ))}
+          </S.Rolling>
+        </Marquee>
       </S.Font>
     </S.Container>
   );

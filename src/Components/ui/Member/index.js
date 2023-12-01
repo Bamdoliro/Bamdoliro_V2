@@ -6,28 +6,18 @@ import Github from '../../../assets/github.svg'
 
 
 const Member = () => {
-  const generations = ['1기', '2기', '3기']
+  const generations = [1, 2, 3]
   const positions = ['Frontend', 'Backend', 'Designer']
   const [member, setMember] = useState([]);
   const [filteredMember, setFilteredMember] = useState([]);
-  const [selectedGeneration, setSelectedGeneration] = useState(null);
+  const [selectedGeneration, setSelectedGeneration] = useState([]);
   const [selectedPosition, setSelectedPosition] = useState([])
   const [page, setPage] = useState(0)
-
-  console.log(selectedPosition)
-
-  const onGenerationClick = (index) => {
-    if (selectedGeneration === index) {
-      setSelectedGeneration(null)
-    } else {
-      setSelectedGeneration(index)
-    }
-  }
 
   useEffect(() => {
     const getMemberData = async () => {
       try {
-        const res = await axios.get("https://port-0-bamdoliro-ov-jvpb2alnepf5zj.sel5.cloudtype.app/position/list")
+        const res = await axios.get("https://port-0-bamdoliro-ov-jvpb2alnepf5zj.sel5.cloudtype.app/position/list?")
         setMember(res.data);
         console.log(res.data)
         setFilteredMember(res.data)
@@ -39,14 +29,19 @@ const Member = () => {
   }, [])
 
   useEffect(() => {
+    console.log(`포지션 : ${selectedPosition.length}`)
+    console.log(`기수 : ${selectedGeneration.length}`)
     if (member) {
-      setFilteredMember(member.filter((item) => selectedPosition.includes(item.position)))
+      setFilteredMember(
+        member.filter(
+          (item) =>
+            (selectedPosition.includes(item.position) || !selectedPosition.length) &&
+            (selectedGeneration.includes(item.generation) || !selectedGeneration.length)
+        )
+      )
       setPage(0)
     }
-    if (selectedPosition.length === 0) {
-      setFilteredMember(member)
-    }
-  }, [selectedPosition])
+  }, [selectedPosition, selectedGeneration])
   return (
     <S.Layout>
       <S.Titles>
@@ -58,8 +53,17 @@ const Member = () => {
           generations.map((item, index) => {
             return (
               <S.Generation
-                onClick={() => onGenerationClick(index)}
-                selected={selectedGeneration === index}
+                onClick={() => {
+                  let newGeneration;
+                  if (selectedGeneration.includes(item)) {
+                    newGeneration = selectedGeneration.filter((activeGen) => item !== activeGen)
+                  } else {
+                    newGeneration = [...selectedGeneration, item]
+                  }
+                  setSelectedGeneration(newGeneration)
+                }
+                }
+                selected={selectedGeneration.includes(item)}
               >
                 {item}
               </S.Generation>

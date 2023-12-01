@@ -102,17 +102,24 @@ export const PosAndGen = styled.p`
   font-size: 16px;
   font-weight: 600;
 `
-export const ArrowIcon = styled.img`
+export const ArrowIconImg = styled.img`
+  cursor: pointer;
+`
+export const LArrowIconButton = styled.button`
   position: absolute;
-  &:first-child {
-    left: 0;
-  }
-  &:last-child {
-    right: 0;
-  }
   width: 31px;
   height: 47px;
-  cursor: pointer;
+  left: 0;
+  border: none;
+  background-color: #FFF;
+`
+export const RArrowIconButton = styled.button`
+  position: absolute;
+  width: 31px;
+  height: 47px;
+  right: 0;
+  border: none;
+  background-color: #FFF;
 `
 export const GithubImg = styled.img`
   position: absolute;

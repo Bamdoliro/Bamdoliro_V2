@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import * as S from './style'
 import axios from 'axios';
-import RightArrow from '../../../assets/arrow.svg'
+import Arrow from '../../../assets/arrow.svg'
 import Github from '../../../assets/github.svg'
-
 
 const Member = () => {
   const generations = [1, 2, 3]
   const positions = ['Frontend', 'Backend', 'Designer']
-  const [member, setMember] = useState([]);
-  const [filteredMember, setFilteredMember] = useState([]);
-  const [selectedGeneration, setSelectedGeneration] = useState([]);
+  const profilesPage = 4
+  const [member, setMember] = useState([])
+  const [filteredMember, setFilteredMember] = useState([])
+  const [selectedGeneration, setSelectedGeneration] = useState([])
   const [selectedPosition, setSelectedPosition] = useState([])
-  const [page, setPage] = useState(0)
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     const getMemberData = async () => {
@@ -39,9 +39,18 @@ const Member = () => {
             (selectedGeneration.includes(item.generation) || !selectedGeneration.length)
         )
       )
-      setPage(0)
+      setCurrentPage(1)
     }
   }, [selectedPosition, selectedGeneration])
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  }
+
+  const totalPages = Math.ceil(filteredMember.length / profilesPage)
+  const startIndex = (currentPage - 1) * profilesPage
+  const endIndex = startIndex + profilesPage
+
   return (
     <S.Layout>
       <S.Titles>
@@ -65,7 +74,7 @@ const Member = () => {
                 }
                 selected={selectedGeneration.includes(item)}
               >
-                {item}
+                {item}기
               </S.Generation>
             )
           })
@@ -95,10 +104,15 @@ const Member = () => {
         }
       </S.PositionButtons>
       <S.MemberLayout>
-        <S.ArrowIcon src={RightArrow} onClick={() => setPage(page > 0 ? page - 1 : 0)} />
+        <S.LArrowIconButton
+          onClick={() => handlePageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
+          <S.ArrowIconImg src={Arrow} style={{ transform: 'scaleX(-1)' }} />
+        </S.LArrowIconButton>
         <S.MembersBox>
           {
-            filteredMember?.slice(page * 4, page * 4 + 4).map((item, index) => {
+            filteredMember?.slice(startIndex, endIndex).map((item, index) => {
               return (
                 <S.CoverLink href={`https://github.com/${item.githubId}`} target='_blank' key={index}>
                   <S.Members>
@@ -116,8 +130,11 @@ const Member = () => {
             })
           }
         </S.MembersBox>
-
-        <S.ArrowIcon src={RightArrow} style={{ transform: 'scaleX(-1)' }} onClick={() => setPage(page < 4 ? page + 1 : 4)} />
+        <S.RArrowIconButton
+          onClick={() => handlePageChange(currentPage + 1)}
+          disabled={currentPage === totalPages}>
+          <S.ArrowIconImg src={Arrow} />
+        </S.RArrowIconButton>
       </S.MemberLayout>
     </S.Layout>
   );

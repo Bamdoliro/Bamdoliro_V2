@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Project from '../../common/Project';
+import Project from '../../../components/Project';
 import projects from '../../../datas/projects.json'
 import check_icon from '../../../assets/Icon-Check.svg'
 import * as S from './style'

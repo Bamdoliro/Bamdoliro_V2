@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import years from "../../../datas/years.json"
-import checkIcon from '../../../assets/Icon-Check.svg'
+import years from "../../datas/years.json"
+import checkIcon from '../../assets/Icon-Check.svg'
 import * as S from './style'
 
 const History = ({ selectedMonthIndex, setSelectedMonthIndex, selectedYear }) => {

@@ -28,7 +28,7 @@ const Text = styled.div`
   font-size: 15px;
   font-weight: bold;
   color: white;
-  cursor: pointer;
+  cursor: none;
 `;
 
 const Bamdoliro = styled.div`

@@ -19,9 +19,12 @@ const Projects = () => {
         })}
       </S.Header_icon>
       {selectedIconIndex < projects.length && (
-        <Project title={projects[selectedIconIndex].title} info={projects[selectedIconIndex].info} symbol={projects[selectedIconIndex].img}/>
+        <Project
+          title={projects[selectedIconIndex].title}
+          info={projects[selectedIconIndex].info}
+          symbol={projects[selectedIconIndex].img}
+        />
       )}
-      
     </>
   );
 };

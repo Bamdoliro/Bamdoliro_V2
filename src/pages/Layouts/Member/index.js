@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import * as S from './style'
 import axios from 'axios';
 import Arrow from '../../../assets/arrow.svg'
-import Github from '../../../assets/github.svg'
+import githubImage from '../../../assets/github.svg'
 
 const Member = () => {
   const generations = [1, 2, 3]
@@ -121,7 +121,7 @@ const Member = () => {
                       </S.Name>
                       <S.PosAndGen>{item.position} | {item.generation}기</S.PosAndGen>
                     </S.Content>
-                    <S.GithubImg src={Github} />
+                    <S.GithubImg src={githubImage} />
                   </S.Members>
                 </S.CoverLink>
               )

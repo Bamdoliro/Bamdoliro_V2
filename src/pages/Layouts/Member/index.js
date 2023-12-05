@@ -29,8 +29,6 @@ const Member = () => {
   }, [])
 
   useEffect(() => {
-    console.log(`포지션 : ${selectedPosition.length}`)
-    console.log(`기수 : ${selectedGeneration.length}`)
     if (member) {
       setFilteredMember(
         member.filter(

@@ -30,10 +30,8 @@ const Wind = () => {
             {wind.map((a) => (
               <S.Box>
                 <S.Textbox>
-                  <S.Square>
-                    <S.Number>{a.id}번째 바람</S.Number>
-                    <S.Text>{a.wind}</S.Text>
-                  </S.Square>
+                  <S.Number>{a.id}번째 바람</S.Number>
+                  <S.Text>{a.wind}</S.Text>
                 </S.Textbox>
               </S.Box>
             ))}

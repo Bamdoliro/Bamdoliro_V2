@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import bsm from "../../../assets/bsm.svg";
 
 export const Rolling = styled.div`
-  width: 3000px;
+  width: 2440px;
   height: 1800px;
 `;
 
@@ -10,13 +10,6 @@ export const Box = styled.div`
   display: inline-block;
   justify-content: flex-start;
   padding: 10px;
-`;
-
-export const Square = styled.div`
-  padding-top: 29px;
-  padding-bottom: 29px;
-  padding-left: 33px;
-  padding-right: 33px;
 `;
 
 export const Text = styled.div`
@@ -45,11 +38,14 @@ export const Number = styled.div`
 export const Textbox = styled.div`
   position: relative;
   top: 180px;
-  left: 100px;
   width: auto;
   height: auto;
   border-radius: 24px;
   background-color: rgba(255, 255, 255, 0.24);
+  padding-top: 29px;
+  padding-bottom: 29px;
+  padding-left: 33px;
+  padding-right: 33px;
 `;
 
 export const Font = styled.div`

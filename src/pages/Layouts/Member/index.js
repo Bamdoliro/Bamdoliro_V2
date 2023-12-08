@@ -20,7 +20,6 @@ const Member = () => {
         const res = await axios.get("https://port-0-bamdoliro-ov-jvpb2alnepf5zj.sel5.cloudtype.app/position/list?")
         setMember(res.data);
         console.log(res.data)
-        setFilteredMember(res.data)
       } catch (err) {
         console.log(err)
       }
@@ -39,9 +38,9 @@ const Member = () => {
       )
       setCurrentPage(1)
     }
-  }, [selectedPosition, selectedGeneration])
+  }, [member,selectedPosition, selectedGeneration])
 
-  const handlePageChange = (page) => {
+  const handleMemberPageChange = (page) => {
     setCurrentPage(page);
   }
 
@@ -103,7 +102,7 @@ const Member = () => {
       </S.PositionButtons>
       <S.MemberLayout>
         <S.LArrowIconButton
-          onClick={() => handlePageChange(currentPage - 1)}
+          onClick={() => handleMemberPageChange(currentPage - 1)}
           disabled={currentPage === 1}
         >
           <S.ArrowIconImg src={Arrow} style={{ transform: 'scaleX(-1)' }} />
@@ -129,7 +128,7 @@ const Member = () => {
           }
         </S.MembersBox>
         <S.RArrowIconButton
-          onClick={() => handlePageChange(currentPage + 1)}
+          onClick={() => handleMemberPageChange(currentPage + 1)}
           disabled={currentPage === totalPages}>
           <S.ArrowIconImg src={Arrow} />
         </S.RArrowIconButton>

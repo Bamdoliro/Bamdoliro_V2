@@ -38,10 +38,22 @@ const Member = () => {
       )
       setCurrentPage(1)
     }
-  }, [member,selectedPosition, selectedGeneration])
+  }, [member, selectedPosition, selectedGeneration])
 
   const handleMemberPageChange = (page) => {
     setCurrentPage(page);
+  }
+
+  const active = (filter, item) => {
+    const newFilter = filter.includes(item)
+      ? filter.filter((activeItem) => activeItem !== item)
+      : [...filter, item];
+
+    if (filter === selectedPosition) {
+      setSelectedPosition(newFilter)
+    } else {
+      setSelectedGeneration(newFilter)
+    }
   }
 
   const totalPages = Math.ceil(filteredMember.length / profilesPage)
@@ -59,16 +71,7 @@ const Member = () => {
           generations.map((item, index) => {
             return (
               <S.Generation
-                onClick={() => {
-                  let newGeneration;
-                  if (selectedGeneration.includes(item)) {
-                    newGeneration = selectedGeneration.filter((activeGen) => item !== activeGen)
-                  } else {
-                    newGeneration = [...selectedGeneration, item]
-                  }
-                  setSelectedGeneration(newGeneration)
-                }
-                }
+                onClick={() => active(selectedGeneration,item)}
                 selected={selectedGeneration.includes(item)}
               >
                 {item}기
@@ -82,16 +85,7 @@ const Member = () => {
           positions.map((item, index) => {
             return (
               <S.Position
-                onClick={() => {
-                  let newPosition;
-                  if (selectedPosition.includes(item)) {
-                    newPosition = selectedPosition.filter((activePos) => item !== activePos)
-                  } else {
-                    newPosition = [...selectedPosition, item]
-                  }
-                  setSelectedPosition(newPosition)
-                }
-                }
+                onClick={() => active(selectedPosition,item)}
                 selected={selectedPosition.includes(item)}
               >
                 {item}

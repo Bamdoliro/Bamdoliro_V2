@@ -11,7 +11,7 @@ const Wind = () => {
         const res = await axios.get(
           "https://port-0-bamdoliro-ov-jvpb2alnepf5zj.sel5.cloudtype.app/randomList"
         );
-        const sort = res.data.sort((a, b) => a.id - b.id);
+        const sort = res.data.sort((a, b) => a.id - b.id); //데이터를 순서대로 정렬
         setWind(sort);
         console.log(sort);
       } catch (err) {
@@ -26,6 +26,7 @@ const Wind = () => {
       <S.Font>
         <S.Title>우리의 바람이 당신에게 닿기를</S.Title>
         <Marquee>
+          {/*흐르는 텍스트 효과*/}
           <S.Rolling>
             {wind.map((a) => (
               <S.Box>

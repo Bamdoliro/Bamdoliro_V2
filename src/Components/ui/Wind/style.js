@@ -2,16 +2,15 @@ import { styled } from "styled-components";
 import bsm from "../../../assets/bsm.svg";
 
 export const Rolling = styled.div`
-  width: 2440px;
+  width: 2433px;
   height: 1800px;
+  text-align: left;
 `;
 
 export const Box = styled.div`
   display: inline-block;
-  justify-content: flex-start;
   padding: 10px;
 `;
-
 export const Text = styled.div`
   position: relative;
   font-size: 25px;

@@ -28,6 +28,8 @@ const Wind = () => {
         <Marquee>
           {/*흐르는 텍스트 효과*/}
           <S.Rolling>
+            {" "}
+            {/*텍스트 박스들 들어가있는 공간*/}
             {wind.map((a) => (
               <S.Box>
                 <S.Textbox>

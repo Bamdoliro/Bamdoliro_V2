@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import React from "react";
-import black_logo from "../../../assets/black_logo.svg";
-import white_logo from "../../../assets/white_logo.svg";
+import black_logo from "../../assets/black_logo.svg";
+import white_logo from "../../assets/white_logo.svg";
 
 function Header(props) {
-  const Items = ["팀 소개", "팀 문화", "프로젝트", "팀 연혁", "멤버 소개"];
+  const routeItems = ["팀 소개", "팀 문화", "프로젝트", "팀 연혁", "멤버 소개"];
 
   return (
     <HeaderContainer activeSection={props.activeSection}>
@@ -20,7 +20,7 @@ function Header(props) {
           }
           alt="logo"
         />
-        {Items.map((item, index) => (
+        {routeItems.map((item, index) => (
           <MenuItem
             key={index}
             className={

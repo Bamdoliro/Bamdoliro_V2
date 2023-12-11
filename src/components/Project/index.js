@@ -1,5 +1,5 @@
 import React from "react";
-import * as S from './style'
+import * as S from './style';
 
 const Project = ({ title, info, symbol }) => {
   return (
@@ -11,7 +11,7 @@ const Project = ({ title, info, symbol }) => {
           <S.Project_info>{info}</S.Project_info>
         </S.Text_content>
         <S.Icon_layout>
-          <S.Icon src={require(`../../../assets/${symbol}`)} />
+          <S.Icon src={require(`../../assets/${symbol}`)} />
         </S.Icon_layout>
       </S.Content>
     </S.Container>

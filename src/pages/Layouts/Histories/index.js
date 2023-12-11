@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import History from '../../common/History';
+import History from '../../../components/History';
 import * as S from './style'
 
 const Histories = () => {

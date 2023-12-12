@@ -30,7 +30,7 @@ const Home = () => {
       <GlobalStyle />
       <Hash setActiveSection={setActiveSection}/>
       <ReactFullpage
-        anchors={["main", "introduce", "culture", "projects", "history", "member"]}
+        anchors={["main", "introduce", "culture", "projects", "history", "member","wish"]}
         onLeave={(origin, destination, direction) => {
           if (origin.index === 1 && direction === "down") {
             setIsIntroduceLoad(true);

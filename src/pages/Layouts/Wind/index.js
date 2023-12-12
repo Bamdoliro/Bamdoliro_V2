@@ -11,9 +11,8 @@ const Wind = () => {
         const res = await axios.get(
           "https://teampage.bamdoliro.com/randomList"
         );
-        const sort = res.data.sort((a, b) => a.id - b.id); //데이터를 순서대로 정렬
-        setWind(sort);
-        console.log(sort);
+        setWind(res.data);
+        console.log(res.data);
       } catch (err) {
         console.log(err);
       }
@@ -30,14 +29,16 @@ const Wind = () => {
           <S.Rolling>
             {" "}
             {/*텍스트 박스들 들어가있는 공간*/}
-            {wind.map((a) => (
-              <S.Box>
-                <S.Textbox>
-                  <S.Number>{a.id}번째 바람</S.Number>
-                  <S.Text>{a.wind}</S.Text>
-                </S.Textbox>
-              </S.Box>
-            ))}
+            {wind.map((item) => {
+              return (
+                <S.Box>
+                  <S.Textbox>
+                    <S.Number>{item.id}번째 바람</S.Number>
+                    <S.Text>{item.wind}</S.Text>
+                  </S.Textbox>
+                </S.Box>
+              )
+            })}
           </S.Rolling>
         </Marquee>
       </S.Font>

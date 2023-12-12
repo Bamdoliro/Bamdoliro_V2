@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import bsm from "../../../assets/bsm.svg";
 
 export const Rolling = styled.div`
-  width: 2433px;
+  width: auto;
   height: 1800px;
   text-align: left;
 `;
@@ -36,7 +36,7 @@ export const Number = styled.div`
 
 export const Textbox = styled.div`
   position: relative;
-  top: 180px;
+  top: 150px;
   width: auto;
   height: auto;
   border-radius: 24px;

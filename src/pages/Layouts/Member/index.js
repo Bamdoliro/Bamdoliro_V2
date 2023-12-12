@@ -17,7 +17,7 @@ const Member = () => {
   useEffect(() => {
     const getMemberData = async () => {
       try {
-        const res = await axios.get("https://port-0-bamdoliro-ov-jvpb2alnepf5zj.sel5.cloudtype.app/position/list?")
+        const res = await axios.get("https://teampage.bamdoliro.com/position/list")
         setMember(res.data);
         console.log(res.data)
       } catch (err) {

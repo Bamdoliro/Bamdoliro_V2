@@ -9,7 +9,7 @@ const Wind = () => {
     const getWindData = async () => {
       try {
         const res = await axios.get(
-          "https://port-0-bamdoliro-ov-jvpb2alnepf5zj.sel5.cloudtype.app/randomList"
+          "https://teampage.bamdoliro.com/randomList"
         );
         const sort = res.data.sort((a, b) => a.id - b.id); //데이터를 순서대로 정렬
         setWind(sort);

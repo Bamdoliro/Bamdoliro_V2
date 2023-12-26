@@ -1,10 +1,18 @@
 import { styled } from "styled-components";
 import bsm from "../../../assets/bsm.svg";
 
+export const RollingTop = styled.div`
+  width: auto;
+  height: 140px;
+  text-align: left;
+  display: flex;
+  margin-top: 150px;
+`;
 export const Rolling = styled.div`
   width: auto;
-  height: 1800px;
+  height: 140px;
   text-align: left;
+  display: flex;
 `;
 
 export const Box = styled.div`
@@ -14,9 +22,7 @@ export const Box = styled.div`
 export const Text = styled.div`
   position: relative;
   font-size: 25px;
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
   user-select: none;
   text-align: left;
   padding-top: 10px;
@@ -25,20 +31,16 @@ export const Text = styled.div`
 export const Number = styled.div`
   position: relative;
   color: var(--grey2, #929292);
-  font-family: Pretendard;
   font-size: 21px;
-  font-style: normal;
   font-weight: 500;
-  line-height: normal;
   user-select: none;
   text-align: left;
 `;
 
 export const Textbox = styled.div`
   position: relative;
-  top: 150px;
   width: auto;
-  height: auto;
+  height: 60px;
   border-radius: 24px;
   background-color: rgba(255, 255, 255, 0.24);
   padding-top: 29px;
@@ -54,9 +56,7 @@ export const Font = styled.div`
 `;
 export const Title = styled.div`
   font-size: 35px;
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
   position: relative;
   top: 110px;
   user-select: none;

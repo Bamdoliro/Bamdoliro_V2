@@ -22,12 +22,14 @@ export const Github = styled.img`
   position: fixed;
   left: 1175px;
   top: 83px;
+  cursor: pointer;
 `;
 
 export const Insta = styled.img`
   position: fixed;
   left: 1240px;
   top: 83px;
+  cursor: pointer;
 `;
 
 export const Font = styled.div`

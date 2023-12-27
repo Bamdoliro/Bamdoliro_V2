@@ -68,5 +68,14 @@ export const Container = styled.div`
   background-image: url(${bsm});
   background-size: cover;
   background-position: center;
-  overflow: hidden;
+  overflow: auto;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+export const WishPage = styled.div`
+  height: 100vh;
 `;

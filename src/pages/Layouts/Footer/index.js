@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./style";
 import logo from "../../../assets/FooterLogo.svg";
-import github from "../../../assets/github.svg";
+import github from "../../../assets/github2.svg";
 import insta from "../../../assets/insta.svg";
 
 const Footer = () => {

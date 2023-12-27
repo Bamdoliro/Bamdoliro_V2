@@ -36,7 +36,6 @@ export const Font = styled.div`
   position: fixed;
   left: 161px;
   color: var(--grey2, #929292);
-  /* small text */
   font-family: Pretendard;
   font-size: 16px;
   font-style: normal;

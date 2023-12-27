@@ -6,7 +6,7 @@ import insta from "../../../assets/insta.svg";
 
 const Footer = () => {
   return (
-    <div>
+    <>
       <S.Container>
         <S.Icon src={logo} />
         <S.Github
@@ -26,7 +26,7 @@ const Footer = () => {
           <S.Reserved>© 2023. Bamdoliro. All rights reserved.</S.Reserved>
         </S.Font>
       </S.Container>
-    </div>
+    </>
   );
 };
 

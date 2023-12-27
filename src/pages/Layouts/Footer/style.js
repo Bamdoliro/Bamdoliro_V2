@@ -10,7 +10,7 @@ export const Container = styled.div`
 `;
 
 export const Icon = styled.img`
-  position: fixed;
+  position: absolute;
   left: 161px;
   top: 83px;
   width: 248px;
@@ -19,21 +19,21 @@ export const Icon = styled.img`
 `;
 
 export const Github = styled.img`
-  position: fixed;
+  position: absolute;
   left: 1175px;
   top: 83px;
   cursor: pointer;
 `;
 
 export const Insta = styled.img`
-  position: fixed;
+  position: absolute;
   left: 1240px;
   top: 83px;
   cursor: pointer;
 `;
 
 export const Font = styled.div`
-  position: fixed;
+  position: absolute;
   left: 161px;
   color: var(--grey2, #929292);
   font-family: Pretendard;
@@ -44,11 +44,11 @@ export const Font = styled.div`
 `;
 
 export const Email = styled.div`
-  position: fixed;
+  position: relative;
   top: 137.55px;
 `;
 
 export const Reserved = styled.div`
-  position: fixed;
-  top: 310px;
+  position: relative;
+  top: 290px;
 `;

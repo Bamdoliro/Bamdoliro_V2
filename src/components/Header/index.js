@@ -1,11 +1,10 @@
 import * as S from "./style";
 import React from "react";
+import { Link } from "react-router-dom";
 import black_logo from "../../assets/black_logo.svg";
 import white_logo from "../../assets/white_logo.svg";
 
 const Header = (props) => {
-  const routeItems = ["팀 소개", "팀 문화", "프로젝트", "팀 연혁", "멤버 소개"];
-
   return (
     <S.HeaderContainer activeSection={props.activeSection}>
       <S.Menu>
@@ -21,22 +20,21 @@ const Header = (props) => {
           }
           alt="logo"
         />
-        {routeItems.map((item, index) => (
-          <S.MenuItem
-            key={index}
-            className={
-              props.activeSection === "introduce" ||
-              props.activeSection === "culture" ||
-              props.activeSection === "projects" ||
-              props.activeSection === "history" ||
-              props.activeSection === "member"
-                ? "active"
-                : ""
-            }
-          >
-            {item}
-          </S.MenuItem>
-        ))}
+        <S.MenuItem>
+          <Link to="/#introduce">메뉴1</Link>
+        </S.MenuItem>
+        <S.MenuItem>
+          <Link to="/#culture">메뉴1</Link>
+        </S.MenuItem>
+        <S.MenuItem>
+          <Link to="/#projects">메뉴1</Link>
+        </S.MenuItem>
+        <S.MenuItem>
+          <Link to="/#history">메뉴1</Link>
+        </S.MenuItem>
+        <S.MenuItem>
+          <Link to="/#member">메뉴1</Link>
+        </S.MenuItem>
       </S.Menu>
     </S.HeaderContainer>
   );

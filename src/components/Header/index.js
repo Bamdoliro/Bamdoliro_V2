@@ -1,6 +1,6 @@
 import * as S from "./style";
 import React from "react";
-import { Link } from "react-router-dom";
+import { a } from "react-router-dom";
 import black_logo from "../../assets/black_logo.svg";
 import white_logo from "../../assets/white_logo.svg";
 
@@ -8,7 +8,7 @@ const Header = (props) => {
   return (
     <S.HeaderContainer activeSection={props.activeSection}>
       <S.Menu>
-        <S.Logo
+      <S.Logo
           src={
             props.activeSection === "introduce" ||
             props.activeSection === "culture" ||
@@ -18,22 +18,21 @@ const Header = (props) => {
               ? black_logo
               : white_logo
           }
-          alt="logo"
-        />
+          alt="logo" />
         <S.MenuItem>
-          <Link to="/#introduce">메뉴1</Link>
+          <a href="/#introduce">메뉴1</a>
         </S.MenuItem>
         <S.MenuItem>
-          <Link to="/#culture">메뉴1</Link>
+          <a href="/#culture">메뉴1</a>
         </S.MenuItem>
         <S.MenuItem>
-          <Link to="/#projects">메뉴1</Link>
+          <a href="/#projects">메뉴1</a>
         </S.MenuItem>
         <S.MenuItem>
-          <Link to="/#history">메뉴1</Link>
+          <a href="/#history">메뉴1</a>
         </S.MenuItem>
         <S.MenuItem>
-          <Link to="/#member">메뉴1</Link>
+          <a href="/#member">메뉴1</a>
         </S.MenuItem>
       </S.Menu>
     </S.HeaderContainer>

@@ -20,19 +20,19 @@ const Header = (props) => {
           }
           alt="logo" />
         <S.MenuItem>
-          <a href="/#introduce">메뉴1</a>
+          <S.Item href="/#introduce">팀 소개</S.Item>
         </S.MenuItem>
         <S.MenuItem>
-          <a href="/#culture">메뉴1</a>
+          <S.Item href="/#culture">팀 문화</S.Item>
         </S.MenuItem>
         <S.MenuItem>
-          <a href="/#projects">메뉴1</a>
+          <S.Item href="/#projects">프로젝트</S.Item>
         </S.MenuItem>
         <S.MenuItem>
-          <a href="/#history">메뉴1</a>
+          <S.Item href="/#history">팀 연혁</S.Item>
         </S.MenuItem>
         <S.MenuItem>
-          <a href="/#member">메뉴1</a>
+          <S.Item href="/#member">멤버 소개</S.Item>
         </S.MenuItem>
       </S.Menu>
     </S.HeaderContainer>

@@ -28,6 +28,10 @@ export const Menu = styled.ul`
   margin-left: 170px;
 `;
 
+export const Item = styled.a`
+  text-decoration: none;
+  color: black;
+`
 export const MenuItem = styled.li`
   list-style-type: none;
   margin-right: 30px;

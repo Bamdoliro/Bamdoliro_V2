@@ -20,14 +20,14 @@ export const Icon = styled.img`
 
 export const Github = styled.img`
   position: absolute;
-  left: 81%;
+  left: 82%;
   top: 83px;
   cursor: pointer;
 `;
 
 export const Insta = styled.img`
   position: absolute;
-  left: 85%;
+  left: 85.5%;
   top: 83px;
   cursor: pointer;
 `;

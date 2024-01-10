@@ -49,6 +49,10 @@ export const MenuItem = styled.li`
   }
 `;
 
+export const Url = styled.a`
+  text-decoration : none;
+` 
+
 export const Logo = styled.img`
   width: 170px;
   height: 20px;

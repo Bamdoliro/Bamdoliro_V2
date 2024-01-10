@@ -29,6 +29,9 @@ export const Menu = styled.ul`
 `;
 
 export const MenuItem = styled.li`
+  width: 75px;
+  display: flex;
+  justify-content: center;
   list-style-type: none;
   margin-right: 30px;
   cursor: pointer;
@@ -51,8 +54,6 @@ export const MenuItem = styled.li`
 
 export const Text = styled.div`
   display:flex;
-  margin-left:auto;
-  margin-right:17%;
 `
 export const Url = styled.a`
   text-decoration : none;
@@ -61,7 +62,7 @@ export const Url = styled.a`
 export const Logo = styled.img`
   width: 170px;
   height: 20px;
-  margin-right: 570px;
+  margin-right: 500px;
 `;
 
 /*import styled from "styled-components";

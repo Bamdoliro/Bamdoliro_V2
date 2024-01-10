@@ -15,18 +15,15 @@ const Introduce = ({onNavigateToNextPage}) => {
   const handleWheel = (event) => {
     const scroll = event.deltaY;
     if (scroll > 0) {
-      if (isScrollDown.current || textNumber > 4) {
-        if (textNumber > 4) {
-          onNavigateToNextPage("introduce")
-        }
-      }
-      else {
+      if (!isScrollDown.current && textNumber <= 4) {
         console.log("scrolled");
-        setTextNumber(textNumber + 1)
+        setTextNumber(textNumber + 1);
         isScrollDown.current = true;
         setTimeout(() => {
-        isScrollDown.current = false;
-      }, 1500)
+          isScrollDown.current = false;
+        }, 1500);
+      } else if (textNumber > 4) {
+        onNavigateToNextPage("introduce");
       }
     }
   }

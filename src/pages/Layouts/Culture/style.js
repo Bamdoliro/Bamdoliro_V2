@@ -98,7 +98,7 @@ export const Team = styled.div`
 `;
 export const Image = styled.img`
   width: 429px;
-  height: 592px;
+  height: 502px;
   position: absolute;
   left: 60%;
   top: 18%;

@@ -46,9 +46,11 @@ export const Font = styled.div`
 export const Email = styled.div`
   position: relative;
   top: 137.55px;
+  cursor : default;
 `;
 
 export const Reserved = styled.div`
   position: relative;
   top: 275px;
+  cursor : default;
 `;

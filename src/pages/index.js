@@ -10,7 +10,7 @@ import Projects from "./Layouts/Projects";
 import Histories from "./Layouts/Histories";
 import Member from "./Layouts/Member";
 import Wind from "./Layouts/Wind";
-
+import Footer from "./Layouts/Footer/index";
 const Home = () => {
   const [activeSection, setActiveSection] = useState("");
   const [isIntroduceLoad, setIsIntroduceLoad] = useState(false);
@@ -45,6 +45,7 @@ const Home = () => {
           "history",
           "member",
           "wish",
+          "footer",
         ]}
         onLeave={(origin, destination, direction) => {
           if (!isHeaderClicked) {
@@ -94,6 +95,10 @@ const Home = () => {
               <div className="section">
                 <Wind />
               </div>
+              <div className="section fp-auto-height" >
+                <Footer />
+              </div>
+              
             </>
           )
         }
@@ -108,6 +113,7 @@ const Home = () => {
             "history",
             "member",
             "wish",
+            "footer",
           ],
         }}
       />
@@ -127,5 +133,6 @@ const GlobalStyle = createGlobalStyle`
     display: none;
   }
 `;
+
 
 export default Home;

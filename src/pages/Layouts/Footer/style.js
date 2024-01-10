@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: auto;
-  height: 375px;
+  height: 37vh;
   flex-shrink: 0;
   background: var(--grey3, #3e3d3f);
   box-shadow: 0px 4px 4px 0px rgba(255, 253, 253, 0.1);
@@ -20,14 +20,14 @@ export const Icon = styled.img`
 
 export const Github = styled.img`
   position: absolute;
-  left: 1175px;
+  left: 81%;
   top: 83px;
   cursor: pointer;
 `;
 
 export const Insta = styled.img`
   position: absolute;
-  left: 1240px;
+  left: 85%;
   top: 83px;
   cursor: pointer;
 `;

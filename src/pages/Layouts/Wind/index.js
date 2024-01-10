@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import * as S from "./style";
 import Marquee from "react-fast-marquee";
-import Footer from "../Footer";
 
 const Wind = () => {
   const [wind, setWind] = useState([]);
@@ -52,7 +51,6 @@ const Wind = () => {
           </Marquee>
         </S.Font>
       </S.WishPage>
-      <Footer />
     </S.Container>
   );
 };

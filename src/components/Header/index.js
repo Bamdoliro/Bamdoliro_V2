@@ -2,41 +2,44 @@ import * as S from "./style";
 import React from "react";
 import black_logo from "../../assets/black_logo.svg";
 import white_logo from "../../assets/white_logo.svg";
+import header from "../../datas/header.json";
 
-const Header = (props) => {
-  const routeItems = ["팀 소개", "팀 문화", "프로젝트", "팀 연혁", "멤버 소개"];
-
+const Header = ({activeSection, onHeaderClick}) => {
   return (
-    <S.HeaderContainer activeSection={props.activeSection}>
+    <S.HeaderContainer activeSection={activeSection}>
       <S.Menu>
         <S.Logo
           src={
-            props.activeSection === "introduce" ||
-            props.activeSection === "culture" ||
-            props.activeSection === "projects" ||
-            props.activeSection === "history" ||
-            props.activeSection === "member"
+            activeSection === "introduce" ||
+            activeSection === "culture" ||
+            activeSection === "projects" ||
+            activeSection === "history" ||
+            activeSection === "member"
               ? black_logo
               : white_logo
           }
           alt="logo"
         />
-        {routeItems.map((item, index) => (
-          <S.MenuItem
-            key={index}
-            className={
-              props.activeSection === "introduce" ||
-              props.activeSection === "culture" ||
-              props.activeSection === "projects" ||
-              props.activeSection === "history" ||
-              props.activeSection === "member"
-                ? "active"
-                : ""
-            }
-          >
-            {item}
-          </S.MenuItem>
+        <S.Text>
+          {header.map((item) => (
+          <S.Url href={item.to} key={item.id} onClick={onHeaderClick}>
+            <S.MenuItem
+              className={
+                activeSection === "introduce" ||
+                activeSection === "culture" ||
+                activeSection === "projects" ||
+                activeSection === "history" ||
+                activeSection === "member"
+                  ? "active"
+                  : ""
+              }
+            >
+              {item.title}
+            </S.MenuItem>
+          </S.Url>
         ))}
+        </S.Text>
+        
       </S.Menu>
     </S.HeaderContainer>
   );

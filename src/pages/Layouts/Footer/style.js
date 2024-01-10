@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: auto;
-  height: 375px;
+  height: 37vh;
   flex-shrink: 0;
   background: var(--grey3, #3e3d3f);
   box-shadow: 0px 4px 4px 0px rgba(255, 253, 253, 0.1);
@@ -12,7 +12,7 @@ export const Container = styled.div`
 export const Icon = styled.img`
   position: absolute;
   left: 161px;
-  top: 83px;
+  top: 75px;
   width: 248px;
   height: 30px;
   flex-shrink: 0;
@@ -20,15 +20,15 @@ export const Icon = styled.img`
 
 export const Github = styled.img`
   position: absolute;
-  left: 1175px;
-  top: 83px;
+  left: 82%;
+  top: 75px;
   cursor: pointer;
 `;
 
 export const Insta = styled.img`
   position: absolute;
-  left: 1240px;
-  top: 83px;
+  left: 85.5%;
+  top: 75px;
   cursor: pointer;
 `;
 
@@ -46,9 +46,11 @@ export const Font = styled.div`
 export const Email = styled.div`
   position: relative;
   top: 137.55px;
+  cursor : default;
 `;
 
 export const Reserved = styled.div`
   position: relative;
-  top: 290px;
+  top: 275px;
+  cursor : default;
 `;

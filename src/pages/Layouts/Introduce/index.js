@@ -35,13 +35,13 @@ const Introduce = ({onNavigateToNextPage}) => {
     <S.Layout onWheel={handleWheel}>
       <S.ContentLayout>
         <S.Contents>
-          <S.MoveBox textNumber={textNumber}>
-            {texts?.map((text, index) => (
-              <S.Text key={index} index={index} textNumber={textNumber}>
-                {text}
-              </S.Text>
-            ))}
-          </S.MoveBox>
+        <S.MoveBox textNumber={textNumber}>
+          {texts.length > 0 && texts.map((text, index) => (
+          <S.Text key={index} index={index} textNumber={textNumber}>
+            {text}
+          </S.Text>
+          ))}
+        </S.MoveBox>
         </S.Contents>
         <S.Bamdoliro>밤돌이로</S.Bamdoliro>
       </S.ContentLayout>

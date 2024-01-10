@@ -15,6 +15,12 @@ const Home = () => {
   const [activeSection, setActiveSection] = useState("");
   const [isIntroduceLoad, setIsIntroduceLoad] = useState(false);
   const [textNumber, setTextNumber] = useState(0);
+  const [isHeaderClicked, setIsHeaderClicked] = useState(false);
+
+  // 헤더에서 a 태그 클릭을 감지하는 함수
+  const handleHeaderClick = () => {
+    setIsHeaderClicked(true);
+  };
 
   const navigateToNextPage = (e) => {
     if (e === "introduce") {
@@ -26,7 +32,8 @@ const Home = () => {
   };
   return (
     <ThemeProvider theme={{ activeSection }}>
-      <Header activeSection={activeSection} />
+      {/* 헤더 컴포넌트에게 a 태그를 클릭했을 시 isHeaderClicked를 true로 바꾸게, handelHeaderClick을 전달 */}
+      <Header activeSection={activeSection} onHeaderClick={handleHeaderClick} />
       <GlobalStyle />
       <Hash setActiveSection={setActiveSection} />
       <ReactFullpage
@@ -40,50 +47,57 @@ const Home = () => {
           "wish",
         ]}
         onLeave={(origin, destination, direction) => {
-          if (origin.index === 1 && direction === "down") {
-            setIsIntroduceLoad(true);
-            return false;
-          } else if (origin.index === 2 && direction === "up") {
-            setIsIntroduceLoad(false);
-          } else if (
-            origin.index === 2 &&
-            destination.index === 3 &&
-            textNumber <= 2
-          ) {
-            return false;
+          if (!isHeaderClicked) {
+            if (origin.index === 1 && direction === "down") {
+              setIsIntroduceLoad(true);
+              return false;
+            } else if (origin.index === 2 && direction === "up") {
+              setIsIntroduceLoad(false);
+            } else if (
+              origin.index === 2 &&
+              destination.index === 3 &&
+              textNumber <= 2
+            ) {
+              return false;
+            }
           }
+          // a 태그 클릭 이후에는 다시 false로 설정
+          setIsHeaderClicked(false);
           window.location.hash = destination.anchor;
         }}
-        render={() => (
-          <>
-            <GlobalStyle />
-            <div className="section">
-              <Main />
-            </div>
-            <div className={`section${isIntroduceLoad ? " loaded" : ""}`}>
-              <Introduce onNavigateToNextPage={navigateToNextPage} />
-            </div>
-            <div className="section">
-              <Culture
-                onNavigateToNextPage={navigateToNextPage}
-                textNumber={textNumber}
-                setTextNumber={setTextNumber}
-              />
-            </div>
-            <div className="section">
-              <Projects />
-            </div>
-            <div className="section">
-              <Histories />
-            </div>
-            <div className="section">
-              <Member />
-            </div>
-            <div className="section">
-              <Wind />
-            </div>
-          </>
-        )}
+        render={({ state, fullpageApi }) => {
+          return (
+              <>
+              <GlobalStyle />
+              <div className="section">
+                <Main />
+              </div>
+              <div className={`section${isIntroduceLoad ? " loaded" : ""}`}>
+                <Introduce onNavigateToNextPage={navigateToNextPage} />
+              </div>
+              <div className="section">
+                <Culture
+                  onNavigateToNextPage={navigateToNextPage}
+                  textNumber={textNumber}
+                  setTextNumber={setTextNumber}
+                />
+              </div>
+              <div className="section">
+                <Projects />
+              </div>
+              <div className="section">
+                <Histories />
+              </div>
+              <div className="section">
+                <Member />
+              </div>
+              <div className="section">
+                <Wind />
+              </div>
+            </>
+          )
+        }
+      }
         options={{
           licenseKey: null,
           anchors: [

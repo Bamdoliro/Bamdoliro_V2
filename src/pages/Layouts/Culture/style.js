@@ -100,8 +100,8 @@ export const Image = styled.img`
   width: 429px;
   height: 592px;
   position: absolute;
-  left: 850px;
-  top: 100px;
+  left: 60%;
+  top: 18%;
   opacity: ${(props) => (props.index === props.textNumber ? 1 : 0)};
   transition: opacity 0.5s ease;
 `;

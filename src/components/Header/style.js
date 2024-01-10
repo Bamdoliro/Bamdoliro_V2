@@ -49,6 +49,11 @@ export const MenuItem = styled.li`
   }
 `;
 
+export const Text = styled.div`
+  display:flex;
+  margin-left:auto;
+  margin-right:300px;
+`
 export const Url = styled.a`
   text-decoration : none;
 ` 

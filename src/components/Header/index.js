@@ -20,7 +20,8 @@ const Header = ({activeSection, onHeaderClick}) => {
           }
           alt="logo"
         />
-        {header.map((item) => (
+        <S.Text>
+          {header.map((item) => (
           <S.Url href={item.to} key={item.id} onClick={onHeaderClick}>
             <S.MenuItem
               className={
@@ -37,6 +38,8 @@ const Header = ({activeSection, onHeaderClick}) => {
             </S.MenuItem>
           </S.Url>
         ))}
+        </S.Text>
+        
       </S.Menu>
     </S.HeaderContainer>
   );

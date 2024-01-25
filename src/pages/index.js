@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
 import Header from "../components/Header";
 import Hash from "../components/Hash";
-import ReactFullpage from "@fullpage/react-fullpage";
+import { SectionsContainer, Section } from 'react-fullpage';
 import Main from "./Layouts/Main";
 import Introduce from "./Layouts/Introduce";
 import Culture from "./Layouts/Culture";
@@ -30,32 +30,36 @@ const Home = () => {
       window.location.hash = "projects";
     }
   };
+  let options = {
+    anchors : [
+      "main",
+      "introduce",
+      "culture",
+      "projects",
+      "history",
+      "member",
+      "wish",
+      "footer",
+    ],
+  }
   return (
     <ThemeProvider theme={{ activeSection }}>
       {/* 헤더 컴포넌트에게 a 태그를 클릭했을 시 isHeaderClicked를 true로 바꾸게, handelHeaderClick을 전달 */}
       <Header activeSection={activeSection} onHeaderClick={handleHeaderClick} />
       <GlobalStyle />
       <Hash setActiveSection={setActiveSection} />
-      <ReactFullpage
-        anchors={[
-          "main",
-          "introduce",
-          "culture",
-          "projects",
-          "history",
-          "member",
-          "wish",
-          "footer",
-        ]}
+      <SectionsContainer {...options}>
         onLeave={(origin, destination, direction) => {
           if (!isHeaderClicked) {
-            if (origin.index === 1 && direction === "down") {
+            if (origin && origin.index === 1 && direction === "down") {
               setIsIntroduceLoad(true);
               return false;
-            } else if (origin.index === 2 && direction === "up") {
+            } else if (origin && origin.index === 2 && direction === "up") {
               setIsIntroduceLoad(false);
             } else if (
+              origin &&
               origin.index === 2 &&
+              destination &&
               destination.index === 3 &&
               textNumber <= 2
             ) {
@@ -68,11 +72,11 @@ const Home = () => {
         }}
         render={({ state, fullpageApi }) => {
           return (
-              <>
+            <>
               <GlobalStyle />
-              <div className="section">
+              <Section>
                 <Main />
-              </div>
+              </Section>
               <div className={`section${isIntroduceLoad ? " loaded" : ""}`}>
                 <Introduce onNavigateToNextPage={navigateToNextPage} />
               </div>
@@ -98,25 +102,12 @@ const Home = () => {
               <div className="section fp-auto-height" >
                 <Footer />
               </div>
-              
+
             </>
           )
         }
-      }
-        options={{
-          licenseKey: null,
-          anchors: [
-            "main",
-            "introduce",
-            "culture",
-            "projects",
-            "history",
-            "member",
-            "wish",
-            "footer",
-          ],
-        }}
-      />
+        }
+      </SectionsContainer>
     </ThemeProvider>
   );
 };

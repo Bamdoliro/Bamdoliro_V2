@@ -6,6 +6,7 @@ import Culture from "./pages/Layouts/Culture/index";
 import Projects from "./pages/Layouts/Projects/index";
 import Histories from "./pages/Layouts/Histories/index";
 import Member from "./pages/Layouts/Member/index";
+import "./style.css"
 
 function App() {
   return (

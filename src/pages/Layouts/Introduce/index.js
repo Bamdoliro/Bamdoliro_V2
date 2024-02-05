@@ -23,7 +23,7 @@ const Introduce = ({onNavigateToNextPage}) => {
           isScrollDown.current = false;
         }, 1500);
       } else if (textNumber > 4) {
-        onNavigateToNextPage("introduce");
+        
       }
     }
   }

@@ -22,8 +22,6 @@ const Introduce = ({ textNumber, setTextNumber }) => {
         setTimeout(() => {
           isScrollDown.current = false;
         }, 1500);
-      } else if (textNumber > 4) {
-        
       }
     }
   }

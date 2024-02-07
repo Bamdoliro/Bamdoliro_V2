@@ -4,7 +4,7 @@ import conversation from "../../../assets/culture.svg";
 import culture from "../../../assets/culture2.svg";
 import grow from "../../../assets/culture3.svg";
 
-const Culture = ({ onNavigateToNextPage, textNumber, setTextNumber }) => {
+const Culture = ({ textNumber, setTextNumber }) => {
   const texts = [
     "주저없는 소통",
     "수평적인 문화 지향",
@@ -23,8 +23,6 @@ const Culture = ({ onNavigateToNextPage, textNumber, setTextNumber }) => {
         setTimeout(() => {
           isScrollDown.current = false;
         }, 1500);
-      } else if (textNumber > 2) {
-        onNavigateToNextPage("culture");
       }
     }
   };

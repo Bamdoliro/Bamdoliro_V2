@@ -21,7 +21,7 @@ const Introduce = ({ textNumber, setTextNumber }) => {
         isScrollDown.current = true;
         setTimeout(() => {
           isScrollDown.current = false;
-        }, 1500);
+        }, 1000);
       }
     }
   }

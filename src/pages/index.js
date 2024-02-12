@@ -35,6 +35,7 @@ const Home = () => {
         modules={[Mousewheel, HashNavigation, Navigation]}
         speed={1000}
         slidesPerView={1}
+        autoHeight={true}
       >
         <SwiperSlide data-hash="main">
           <Main />

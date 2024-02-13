@@ -23,7 +23,7 @@ const Header = ({ activeSection }) => {
           alt="logo"
         />
         {header.map((item) => (
-          <S.Url href={`#${item.to}`} key={item.id}>
+          <S.Url href={`${item.to}`} key={item.id}>
             <S.MenuItem className={activeSection === item.to ? "active" : ""}>
               {item.title}
             </S.MenuItem>

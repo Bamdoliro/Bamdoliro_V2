@@ -37,7 +37,12 @@ export const MenuItem = styled.li`
   cursor: pointer;
   position: relative;
 
-  color: ${(props) => (props.className === "active" ? "black" : "white")};
+  color: ${(props) =>
+    ["introduce", "culture", "projects", "histories", "member"].includes(
+      props.activeSection
+    )
+      ? "black"
+      : "white"};
 
   &:hover::before {
     content: "";

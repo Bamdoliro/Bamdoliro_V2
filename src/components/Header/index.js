@@ -24,7 +24,10 @@ const Header = ({ activeSection }) => {
         />
         {header.map((item) => (
           <S.Url href={`${item.to}`} key={item.id}>
-            <S.MenuItem className={activeSection === item.to ? "active" : ""}>
+            <S.MenuItem
+              activeSection={activeSection}
+              className={activeSection === item.to ? "active" : ""}
+            >
               {item.title}
             </S.MenuItem>
           </S.Url>

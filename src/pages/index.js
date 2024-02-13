@@ -39,7 +39,6 @@ const Home = () => {
         modules={[Mousewheel, HashNavigation, Navigation]}
         speed={1000}
         slidesPerView={1}
-        autoHeight={true}
         onSlideChange={handleSlideChange}
       >
         <SwiperSlide data-hash="main">
@@ -90,6 +89,7 @@ const GlobalStyle = createGlobalStyle`
     line-height: normal;
     font-style: normal;
   }
+  
 `;
 
 export default Home;

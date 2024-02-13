@@ -6,7 +6,7 @@ import header from "../../datas/header.json";
 
 const Header = ({ activeSection }) => {
   return (
-    <S.HeaderContainer>
+    <S.HeaderContainer activeSection={activeSection}>
       <S.Menu>
         <S.Logo
           src={
@@ -23,13 +23,8 @@ const Header = ({ activeSection }) => {
           alt="logo"
         />
         {header.map((item) => (
-          <S.Url href={`${item.to}`} key={item.id}>
-            <S.MenuItem
-              activeSection={activeSection}
-              className={activeSection === item.to ? "active" : ""}
-            >
-              {item.title}
-            </S.MenuItem>
+          <S.Url href={item.to} key={item.id}>
+            <S.MenuItem activeSection={activeSection}>{item.title}</S.MenuItem>
           </S.Url>
         ))}
       </S.Menu>

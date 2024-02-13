@@ -5,12 +5,10 @@ export const HeaderContainer = styled.div`
   top: 0;
   z-index: 1000;
   background-color: ${(props) =>
-    props.activeSection === "introduce" ||
-    props.activeSection === "culture" ||
-    props.activeSection === "projects" ||
-    props.activeSection === "histories" ||
-    props.activeSection === "member"
-      ? "rgba(255, 255, 255, 0.06)"
+    ["introduce", "culture", "projects", "histories", "member"].includes(
+      props.activeSection
+    )
+      ? "white"
       : "rgba(62, 61, 63, 0.30)"};
   border-bottom: 1px solid rgba(62, 61, 63, 0.3);
   backdrop-filter: blur(5px);

@@ -1,12 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
 import Header from "../components/Header";
 import Main from "./Layouts/Main";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Mousewheel, HashNavigation, Navigation } from "swiper/modules";
-import "swiper/css";
-
 import Introduce from "./Layouts/Introduce";
 import Histories from "./Layouts/Histories";
 import Projects from "./Layouts/Projects";
@@ -15,14 +10,23 @@ import Member from "./Layouts/Member";
 import Wind from "./Layouts/Wind";
 import Footer from "./Layouts/Footer";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Mousewheel, HashNavigation, Navigation } from "swiper/modules";
+import "swiper/css";
+
 const Home = () => {
   const [activeSection, setActiveSection] = useState("");
   const [iTextNumber, setITextNumber] = useState(0);
   const [cTextNumber, setCTextNumber] = useState(0);
 
+  const handleSlideChange = (swiper) => {
+    const hash = swiper.slides[swiper.activeIndex].dataset.hash;
+    setActiveSection(hash);
+  };
+
   return (
     <ThemeProvider theme={{ activeSection }}>
-      <Header />
+      <Header activeSection={activeSection} />
       <GlobalStyle />
       <Swiper
         hashNavigation={{
@@ -36,6 +40,7 @@ const Home = () => {
         speed={1000}
         slidesPerView={1}
         autoHeight={true}
+        onSlideChange={handleSlideChange}
       >
         <SwiperSlide data-hash="main">
           <Main />

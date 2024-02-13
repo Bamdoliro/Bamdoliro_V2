@@ -1,5 +1,5 @@
-import React, { useRef, useState } from "react";
-import * as S from './style'
+import React, { useRef } from "react";
+import * as S from "./style";
 import "swiper/css";
 
 const Introduce = ({ textNumber, setTextNumber }) => {
@@ -24,18 +24,19 @@ const Introduce = ({ textNumber, setTextNumber }) => {
         }, 1000);
       }
     }
-  }
+  };
 
   return (
     <S.Layout onWheel={handleWheel}>
       <S.ContentLayout>
         <S.Contents>
           <S.MoveBox textNumber={textNumber}>
-            {texts.length > 0 && texts.map((text, index) => (
-              <S.Text key={index} index={index} textNumber={textNumber}>
-                {text}
-              </S.Text>
-            ))}
+            {texts.length > 0 &&
+              texts.map((text, index) => (
+                <S.Text key={index} index={index} textNumber={textNumber}>
+                  {text}
+                </S.Text>
+              ))}
           </S.MoveBox>
         </S.Contents>
         <S.Bamdoliro>밤돌이로</S.Bamdoliro>

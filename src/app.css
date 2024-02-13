@@ -2,7 +2,9 @@
   width: 100%;
   height: 100vh;
 }
-
 .swiper {
   margin: 0;
+}
+.swiper-slide:last-child {
+  height: 360px;
 }

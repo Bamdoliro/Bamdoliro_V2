@@ -16,8 +16,6 @@ import "swiper/css";
 
 const Home = () => {
   const [activeSection, setActiveSection] = useState("");
-  const [iTextNumber, setITextNumber] = useState(0);
-  const [cTextNumber, setCTextNumber] = useState(0);
 
   const handleSlideChange = (swiper) => {
     const hash = swiper.slides[swiper.activeIndex].dataset.hash;
@@ -45,37 +43,26 @@ const Home = () => {
           <Main />
         </SwiperSlide>
         <SwiperSlide data-hash="introduce">
-          <Introduce textNumber={iTextNumber} setTextNumber={setITextNumber} />
+          {(props) => <Introduce {...props} />}
         </SwiperSlide>
-        {iTextNumber >= 5 ? (
-          <>
-            <SwiperSlide data-hash="culture">
-              <Culture
-                textNumber={cTextNumber}
-                setTextNumber={setCTextNumber}
-              />
-            </SwiperSlide>
-            {cTextNumber >= 3 ? (
-              <>
-                <SwiperSlide data-hash="projects">
-                  <Projects />
-                </SwiperSlide>
-                <SwiperSlide data-hash="histories">
-                  <Histories />
-                </SwiperSlide>
-                <SwiperSlide data-hash="member">
-                  <Member />
-                </SwiperSlide>
-                <SwiperSlide data-hash="wind">
-                  <Wind />
-                </SwiperSlide>
-                <SwiperSlide data-hash="footer">
-                  <Footer />
-                </SwiperSlide>
-              </>
-            ) : null}
-          </>
-        ) : null}
+        <SwiperSlide data-hash="culture">
+          {(props) => <Culture {...props} />}
+        </SwiperSlide>
+        <SwiperSlide data-hash="projects">
+          <Projects />
+        </SwiperSlide>
+        <SwiperSlide data-hash="histories">
+          <Histories />
+        </SwiperSlide>
+        <SwiperSlide data-hash="member">
+          <Member />
+        </SwiperSlide>
+        <SwiperSlide data-hash="wind">
+          <Wind />
+        </SwiperSlide>
+        <SwiperSlide data-hash="footer">
+          <Footer />
+        </SwiperSlide>
       </Swiper>
     </ThemeProvider>
   );

@@ -1,16 +1,20 @@
-import React, { useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import * as S from "./style";
 import conversation from "../../../assets/culture.svg";
 import culture from "../../../assets/culture2.svg";
 import grow from "../../../assets/culture3.svg";
+import { useSwiper } from "swiper/react";
 
-const Culture = ({ textNumber, setTextNumber }) => {
+const Culture = ({ isActive }) => {
+  const [textNumber, setTextNumber] = useState(0);
   const texts = [
     "주저없는 소통",
     "수평적인 문화 지향",
     "다소 과격한 성장 의지",
   ];
   const imgs = [conversation, culture, grow];
+
+  const swiper = useSwiper();
   const isScrollDown = useRef(false);
 
   const handleWheel = (event) => {
@@ -26,6 +30,15 @@ const Culture = ({ textNumber, setTextNumber }) => {
       }
     }
   };
+
+  useEffect(() => {
+    if (isActive) {
+      swiper.disable();
+      if (textNumber >= 2) {
+        swiper.enable();
+      }
+    }
+  }, [isActive, textNumber, swiper]);
 
   return (
     <S.Layout onWheel={handleWheel}>

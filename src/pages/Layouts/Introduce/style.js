@@ -5,7 +5,10 @@ export const MoveBox = styled.div`
   flex-direction: column;
   gap: 34px;
   transition: transform 0.5s ease;
-  transform: translateY(${(props) => (props.textNumber <= 4 ? `-${props.textNumber * 71}px` : '-284px')});
+  transform: translateY(
+    ${(props) =>
+      props.textNumber <= 4 ? `-${props.textNumber * 71}px` : "-284px"}
+  );
 `;
 
 export const Layout = styled.div`
@@ -75,7 +78,6 @@ export const Text = styled.h1`
   padding-left: 10px;
   padding-right: 10px;
 `;
-
 
 export const Bamdoliro = styled.p`
   color: var(--grey3, #3e3d3f);

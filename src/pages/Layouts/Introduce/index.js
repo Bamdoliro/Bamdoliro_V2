@@ -1,8 +1,10 @@
-import React, { useRef, useState } from "react";
-import * as S from './style'
+import React, { useState, useEffect, useRef } from "react";
+import * as S from "./style";
 import "swiper/css";
+import { useSwiper } from "swiper/react";
 
-const Introduce = ({ textNumber, setTextNumber }) => {
+const Introduce = ({ isActive }) => {
+  const [textNumber, setTextNumber] = useState(0);
   const texts = [
     "🏃끈기있는",
     "🔥꺼지지 않을 열정이 있는",
@@ -10,6 +12,9 @@ const Introduce = ({ textNumber, setTextNumber }) => {
     "📈끊임없이 성장하는",
     "🧶엉킨 실타래를 푸는",
   ];
+
+  const swiper = useSwiper();
+
   const isScrollDown = useRef(false);
 
   const handleWheel = (event) => {
@@ -24,14 +29,23 @@ const Introduce = ({ textNumber, setTextNumber }) => {
         }, 1000);
       }
     }
-  }
+  };
+
+  useEffect(() => {
+    if (isActive) {
+      swiper.disable();
+      if (textNumber >= 4) {
+        swiper.enable();
+      }
+    }
+  }, [isActive, textNumber, swiper]);
 
   return (
     <S.Layout onWheel={handleWheel}>
       <S.ContentLayout>
         <S.Contents>
           <S.MoveBox textNumber={textNumber}>
-            {texts.length > 0 && texts.map((text, index) => (
+            {texts.map((text, index) => (
               <S.Text key={index} index={index} textNumber={textNumber}>
                 {text}
               </S.Text>

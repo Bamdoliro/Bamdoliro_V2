@@ -86,6 +86,7 @@ const Member = () => {
           positions.map((item, index) => {
             return (
               <S.Position
+                key={index}
                 onClick={() => active(selectedPosition,item)}
                 selected={selectedPosition.includes(item)}
               >

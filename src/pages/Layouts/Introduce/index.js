@@ -29,6 +29,9 @@ const Introduce = ({ isActive }) => {
         }, 1000);
       }
     }
+    if (scroll < 0) {
+      swiper.enable();
+    }
   };
 
   useEffect(() => {

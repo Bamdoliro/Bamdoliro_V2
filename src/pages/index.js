@@ -8,7 +8,6 @@ import Projects from "./Layouts/Projects";
 import Culture from "./Layouts/Culture";
 import Member from "./Layouts/Member";
 import Wind from "./Layouts/Wind";
-import Footer from "./Layouts/Footer";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Mousewheel, HashNavigation, Navigation } from "swiper/modules";
@@ -59,9 +58,6 @@ const Home = () => {
         </SwiperSlide>
         <SwiperSlide data-hash="wind">
           <Wind />
-        </SwiperSlide>
-        <SwiperSlide data-hash="footer">
-          <Footer />
         </SwiperSlide>
       </Swiper>
     </ThemeProvider>

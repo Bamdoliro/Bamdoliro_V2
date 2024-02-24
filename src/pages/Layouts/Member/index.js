@@ -71,6 +71,7 @@ const Member = () => {
           generations.map((item, index) => {
             return (
               <S.Generation
+                key={index}
                 onClick={() => active(selectedGeneration,item)}
                 selected={selectedGeneration.includes(item)}
               >
@@ -85,6 +86,7 @@ const Member = () => {
           positions.map((item, index) => {
             return (
               <S.Position
+                key={index}
                 onClick={() => active(selectedPosition,item)}
                 selected={selectedPosition.includes(item)}
               >

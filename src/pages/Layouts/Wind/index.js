@@ -10,7 +10,7 @@ const Wind = () => {
     const getWindData = async () => {
       try {
         const res = await axios.get(
-          "https://teampage.bamdoliro.com/randomList"
+          `${process.env.REACT_APP_BASEURL}/randomList`
         );
         setWind(res.data);
         console.log(res.data);

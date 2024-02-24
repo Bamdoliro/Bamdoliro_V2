@@ -17,7 +17,7 @@ const Member = () => {
   useEffect(() => {
     const getMemberData = async () => {
       try {
-        const res = await axios.get("https://teampage.bamdoliro.com/position/list")
+        const res = await axios.get(`${process.env.REACT_APP_BASEURL}/position/list`)
         setMember(res.data);
         console.log(res.data)
       } catch (err) {
